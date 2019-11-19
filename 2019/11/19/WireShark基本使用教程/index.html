@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="wireshark是一款抓包软件，比较易用，在平常可以利用它抓包，分析协议或者监控网络，是一个比较好的工具，因为最近在用这个分析智能摄像头流量，所以就总结一下wireshark的使用方法。方便供大家学习或留着自个儿以后看。" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>WireShark基本使用教程 | QiShengjia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="wireshark是一款抓包软件，比较易用，在平常可以利用它抓包，分析协议或者监控网络，是一个比较好的工具，因为最近在用这个分析智能摄像头流量，所以就总结一下wireshark的使用方法。方便供大家学习或留着自个儿以后看。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WireShark基本使用教程">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;19&#x2F;WireShark%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B&#x2F;index.html">
+<meta property="og:site_name" content="QiShengjia">
+<meta property="og:description" content="wireshark是一款抓包软件，比较易用，在平常可以利用它抓包，分析协议或者监控网络，是一个比较好的工具，因为最近在用这个分析智能摄像头流量，所以就总结一下wireshark的使用方法。方便供大家学习或留着自个儿以后看。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-19T04:32:22.168Z">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="QiShengjia" rel="home">QiShengjia</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">心无所恃，随遇而安</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-WireShark基本使用教程" class="post-WireShark基本使用教程 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      WireShark基本使用教程
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/11/19/WireShark%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" data-id="ck35d3yei0000h8ut4yh0epc2" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>wireshark是一款抓包软件，比较易用，在平常可以利用它抓包，分析协议或者监控网络，是一个比较好的工具，因为最近在用这个分析智能摄像头流量，所以就总结一下wireshark的使用方法。方便供大家学习或留着自个儿以后看。</p>
+<a id="more"></a>
+<h2 id="WireShark窗口介绍"><a href="#WireShark窗口介绍" class="headerlink" title="WireShark窗口介绍"></a>WireShark窗口介绍</h2><p>Wireshark主窗口由如下部分组成：</p>
+<ol>
+<li>菜单——用于开始操作。</li>
+<li>主工具栏——提供快速访问菜单中经常用到的项目的功能。</li>
+<li>Fiter toolbar/过滤工具栏——提供处理当前显示过滤得方法。</li>
+<li>Packet List面板——显示打开文件的每个包的摘要。点击面板中的单独条目，包的其他情况将会显示在另外两个面板中。</li>
+<li>Packet detail面板——显示您在Packet list面板中选择的包的更多详情。</li>
+<li>Packet bytes面板——显示您在Packet list面板选择的包的数据，以及在Packet details面板高亮显示的字段。</li>
+<li>状态栏——显示当前程序状态以及捕捉数据的更多详情。</li>
+</ol>
+<p><strong>菜单栏</strong></p>
+<p>主菜单包括以下几个项目:</p>
+<ul>
+<li>File ——包括打开、合并捕捉文件，save/保存,Print/打印,Export/导出捕捉文件的全部或部分。以及退出Wireshark项.</li>
+<li>Edit ——包括如下项目：查找包，时间参考，标记一个多个包，设置预设参数。（剪切，拷贝，粘贴不能立即执行。）</li>
+<li>View ——控制捕捉数据的显示方式，包括颜色，字体缩放，将包显示在分离的窗口，展开或收缩详情面版的地树状节点</li>
+<li>GO ——包含到指定包的功能。</li>
+<li>Analyze ——包含处理显示过滤，允许或禁止分析协议，配置用户指定解码和追踪TCP流等功能。</li>
+<li>Statistics ——包括的菜单项用户显示多个统计窗口，包括关于捕捉包的摘要，协议层次统计等等。</li>
+<li>Help ——包含一些辅助用户的参考内容。如访问一些基本的帮助文件，支持的协议列表，用户手册。在线访问一些网站，“关于”</li>
+</ul>
+<p><strong>工具栏(略)</strong></p>
+<p><strong>过滤工具栏</strong></p>
+<p>这个和在工具栏上输入协议来查找包的结果是一样的，只是它方便点<br>在工具栏上输入 过滤语句<br>点击在此区域输入或修改显示的过滤字符，在输入过程中会进行语法检查。如果您输入的格式不正确，或者未输入完成，则背景显示为红色。直到您输入合法的表达式，背景会变为绿色。你可以点击下拉列表选择您先前键入的过滤字符。列表会一直保留，即使您重新启动程序。</p>
+<ul>
+<li>注意：<ol>
+<li>做完修改之后，记得点击右边的Apply(应用)按钮，或者回车，以使过滤生效。</li>
+<li>输入框的内容同时也是当前过滤器的内容（当前过滤器的内容会反映在输入框）</li>
+</ol>
+</li>
+</ul>
+<p><strong>封包列表</strong></p>
+<p>封包列表中显示所有已经捕获的封包。</p>
+<ul>
+<li>在这里您可以看到发送或接收方的MAC/IP地址，TCP/UDP端口号，协议或者封包的内容。</li>
+<li>如果捕获的是一个OSI layer 2的封包，您在Source（来源）和Destination（目的地）列中看到的将是MAC地址，当然，此时Port（端口）列将会为空。</li>
+<li>如果捕获的是一个OSI layer 3或者更高层的封包，您在Source（来源）和Destination（目的地）列中看到的将是IP地址。</li>
+<li>Port（端口）列仅会在这个封包属于第4或者更高层时才会显示。</li>
+</ul>
+<p>您可以在这里添加/删除列或者改变各列的颜色：<br>Edit menu -&gt; Preferences</p>
+<p><strong>封包详细信息</strong></p>
+<p>这里显示的是在封包列表中被选中项目的详细信息。<br>信息按照不同的OSI layer进行了分组，您可以展开每个项目查看。</p>
+<p><strong>16进制数据</strong></p>
+<p>“解析器”在Wireshark中也被叫做“16进制数据查看面板”。这里显示的内容与“封包详细信息”中相同，只是改为以16进制的格式表述。</p>
+<p>在这里我们还要学会在大量的信息中过滤和分析我们需要的信息</p>
+<h2 id="重要的过滤器"><a href="#重要的过滤器" class="headerlink" title="重要的过滤器"></a>重要的过滤器</h2><p>过滤器会如此重要。它们可以帮助我们在庞杂的结果中迅速找到我们需要的信息。</p>
+<h4 id="捕捉过滤器：用于决定将什么样的信息记录在捕捉结果中。需要在开始捕捉前设置。"><a href="#捕捉过滤器：用于决定将什么样的信息记录在捕捉结果中。需要在开始捕捉前设置。" class="headerlink" title="捕捉过滤器：用于决定将什么样的信息记录在捕捉结果中。需要在开始捕捉前设置。"></a>捕捉过滤器：用于决定将什么样的信息记录在捕捉结果中。需要在开始捕捉前设置。</h4><p>捕捉过滤器是数据经过的第一层过滤器，它用于控制捕捉数据的数量，以避免产生过大的日志文件。</p>
+<ul>
+<li><p>步骤是：</p>
+<ol>
+<li>选择 capture -&gt; options。</li>
+<li>填写”capture filter”栏或者点击”capture filter”按钮为您的过滤器起一个名字并保存，以便在今后的捕捉中继续使用这个过滤器。 </li>
+<li>点击开始（Start）进行捕捉。</li>
+</ol>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>语法：</th>
+<th>Protocol</th>
+<th>Direction</th>
+<th>Host(s)</th>
+<th>Value</th>
+<th>LogicalOperations</th>
+<th>OtherExpression</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>例子：</td>
+<td>tcp</td>
+<td>dst</td>
+<td>10.1.1.1</td>
+<td>80</td>
+<td>and</td>
+<td>tcp dst 10.2.2.2 53</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Protocol（协议）:<br>ether，fddi， ip，arp，rarp，decnet，lat， sca，moprc，mopdl， tcp ， udp 等，<br>如果没指明协议类型，则默认为捕捉所有支持的协议。</li>
+<li>Direction（方向）:<br>src， dst，src and dst， src or dst等，<br>如果没有特别指明来源或目的地，则默认使用 “src or dst” 作为关键字。<br>例如，”host 2.2.2.2”与”src or dst host 2.2.2.2”是一样的。</li>
+<li>Host(s):<br>net, port, host, portrange等，<br>如果没有指定此值，则默认使用”host”关键字。<br>例如，”src 10.1.1.1”与”src host 10.1.1.1”相同。</li>
+<li>Logical Operations（逻辑运算）:<br>可能的值：not, and, or.<br>否(“not”)具有最高的优先级。或(“or”)和与(“and”)具有相同的优先级，运算时从左至右进行。<br>例如，<br>“not tcp port 3306 and tcp port 53”与”(not tcp port 128) and tcp port 53”相同。<br>“not tcp port 3306 and tcp port 53”与”not (tcp port 128 and tcp port 53)”不同。</li>
+</ul>
+<p><strong>举些栗子：</strong></p>
+<ul>
+<li><p>tcp dst port 53<br>显示目的TCP端口为3128的封包。</p>
+</li>
+<li><p>ip src host 10.1.1.1<br>显示来源IP地址为10.1.1.1的封包。</p>
+</li>
+<li><p>host 10.1.2.3<br>显示目的或来源IP地址为10.1.2.3的封包。</p>
+</li>
+<li><p>src portrange 2000-2500<br>显示来源为UDP或TCP，并且端口号在2000至2500范围内的封包。</p>
+</li>
+<li><p>not imcp<br>显示除了icmp以外的所有封包。（icmp通常被ping工具使用）</p>
+</li>
+<li><p>src host 10.7.2.12 and not dst net 10.200.0.0/16<br>显示来源IP地址为10.7.2.12，但目的地不是10.200.0.0/16的封包。</p>
+</li>
+<li><p>(src host 10.4.1.12 or src net 10.6.0.0/16) and tcp dst portrange 200-10000 and dst net 10.0.0.0/8<br>显示来源IP为10.4.1.12或者来源网络为10.6.0.0/16，目的地TCP端口号在200至10000之间，并且目的位于网络10.0.0.0/8内的所有封包。</p>
+</li>
+</ul>
+<p><strong>常见使用的捕获过滤语句：</strong></p>
+<ol>
+<li><p>只（不）捕获某主机的HTTP流量</p>
+<ul>
+<li>host 192.168.5.231 and port 80 and http<br>只捕获主机192.168.5.231 的http流量。注意如果你的HTTP端口为8080，把80 改为8080。</li>
+<li>port 80 and http<br>捕获所有经过该接口的http流量。注意如果你的HTTP端口为8080，把80 改为8080。</li>
+<li>host 192.168.5.231 and not port 80<br>捕获主机192.168.5.231除 http 之外的其他所有流量，注意如果你的HTTP端口为8080，把80 改为8080。</li>
+<li>not port 80<br>捕获除 http 之外的其他所有流量，注意如果你的HTTP端口为8080，把80 改为8080。</li>
+<li>not port 80 and !http<br>捕获除 http 之外的其他所有流量，注意如果你的HTTP端口为8080，把80 改为8080。</li>
+</ul>
+</li>
+<li><p>只捕获某主机的所有流量</p>
+<ul>
+<li>host 192.168.5.231<br>捕获源目主机均为192.168.5.231</li>
+<li>dst 192.168.5.231<br>捕获目的主机均为192.168.5.231</li>
+<li>src 192.168.5.231<br>捕获来源主机均为192.168.5.231</li>
+<li>net 192.168.5.0/24<br>捕获网段为d192.168.5的所有主机的所有流量</li>
+</ul>
+</li>
+<li><p>只捕获某主机的DNS流量</p>
+<ul>
+<li>host 192.168.5.231 and port 53<br>只捕获主机192.168.5.231 的dns流量。</li>
+<li>src 192.168.5.231 and port 53<br>只捕获主机192.168.5.231 对外的dns 的流量。</li>
+<li>dst 192.168.5.231 and port 53<br>只捕获dns服务器相应主机192.168.5.231的dns流量。</li>
+<li>port 53<br>捕获接口中的所有主机的dns流量</li>
+</ul>
+</li>
+<li><p>只（不）捕获APR流量</p>
+<ul>
+<li>host 192.168.5.231 and arp<br>只捕获主机192.168.5.231 的arp流量。</li>
+<li>host 192.168.5.231 and !arp<br>只捕获主机192.168.5.231 除arp外的所有流量。</li>
+<li>arp<br>捕获接口中的所有arp请求</li>
+<li>!arp<br>捕获接口中所有非arpq请求。</li>
+</ul>
+</li>
+<li><p>只捕获特定端口的流量</p>
+<ul>
+<li>tcp portrange 8000-9000 an port 80<br>捕获端口8000-9000之间和80端口的流量</li>
+<li>port 5060<br>捕获sip流量，因为sip的默认端口是5060。举一反三：port 22 #捕获ssh流量</li>
+</ul>
+</li>
+</ol>
+<p><strong>注意事项：</strong></p>
+<p>当使用关键字作为值时，需使用反斜杠“\”。</p>
+<ul>
+<li><p>“ether proto \ip” (与关键字”ip”相同).<br>这样写将会以IP协议作为目标。</p>
+</li>
+<li><p>“ip proto \icmp” (与关键字”icmp”相同).<br>这样写将会以ping工具常用的icmp作为目标。</p>
+</li>
+</ul>
+<p>可以在”ip”或”ether”后面使用”multicast”及”broadcast”关键字。<br>当您想排除广播请求时，”no broadcast”就会非常有用。</p>
+<h4 id="显示过滤器：在捕捉结果中进行详细查找。他们可以在得到捕捉结果后随意修改。"><a href="#显示过滤器：在捕捉结果中进行详细查找。他们可以在得到捕捉结果后随意修改。" class="headerlink" title="显示过滤器：在捕捉结果中进行详细查找。他们可以在得到捕捉结果后随意修改。"></a>显示过滤器：在捕捉结果中进行详细查找。他们可以在得到捕捉结果后随意修改。</h4><p>显示过滤器是一种更为强大（复杂）的过滤器。它允许您在日志文件中迅速准确地找到所需要的记录。<br>通常经过捕捉过滤器过滤后的数据还是很复杂。此时您可以使用显示过滤器进行更加细致的查找。<br>它的功能比捕捉过滤器更为强大，而且在您想修改过滤器条件时，并不需要重新捕捉一次。</p>
+<table>
+<thead>
+<tr>
+<th>语法：</th>
+<th>Protocol</th>
+<th>.String1</th>
+<th>.String2</th>
+<th>Comparison operator</th>
+<th>Value Logical</th>
+<th>Operations</th>
+<th>Other expression_r</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>例子：</td>
+<td>ftp</td>
+<td>passive</td>
+<td>ip</td>
+<td>==</td>
+<td>10.2.3.4</td>
+<td>xor</td>
+<td>icmp.type</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>Protocol（协议）:<br>您可以使用大量位于OSI模型第2至7层的协议。点击”Expression…”按钮后，您可以看到它们。<br>比如：IP，TCP，DNS，SSH</p>
+</li>
+<li><p>String1, String2 (可选项):<br>协议的子类。<br>点击相关父类旁的”》”号，然后选择其子类。</p>
+</li>
+<li><p>Comparison operators （比较运算符）:<br>可以使用6种比较运算符：</p>
+<table>
+<thead>
+<tr>
+<th>英文写法：</th>
+<th>C语言写法：</th>
+<th>含义：</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>eq</td>
+<td>==</td>
+<td>等于</td>
+</tr>
+<tr>
+<td>ne</td>
+<td>!=</td>
+<td>不等于</td>
+</tr>
+<tr>
+<td>gt</td>
+<td>&gt;</td>
+<td>大于</td>
+</tr>
+<tr>
+<td>lt</td>
+<td>&lt;</td>
+<td>小于</td>
+</tr>
+<tr>
+<td>ge</td>
+<td>&gt;=</td>
+<td>大于等于</td>
+</tr>
+<tr>
+<td>le</td>
+<td>&lt;=</td>
+<td>小于等于</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>Logical expression_rs（逻辑运算符）:</p>
+<table>
+<thead>
+<tr>
+<th>英文写法：</th>
+<th>C语言写法：</th>
+<th>含义：</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>and</td>
+<td>&amp;&amp;</td>
+<td>逻辑与</td>
+</tr>
+<tr>
+<td>or</td>
+<td>||</td>
+<td>逻辑或</td>
+</tr>
+<tr>
+<td>xor</td>
+<td>^^</td>
+<td>逻辑异或</td>
+</tr>
+<tr>
+<td>not</td>
+<td>!</td>
+<td>逻辑非</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<p><strong>举些栗子：</strong></p>
+<ul>
+<li><p>snmp || dns || icmp<br>显示SNMP或DNS或ICMP封包。</p>
+</li>
+<li><p>ip.addr == 10.1.1.1<br>显示来源或目的IP地址为10.1.1.1的封包。</p>
+</li>
+<li><p>ip.src != 10.1.2.3 or ip.dst != 10.4.5.6<br>显示来源不为10.1.2.3或者目的不为10.4.5.6的封包。<br>换句话说，显示的封包将会为：来源IP：除了10.1.2.3以外任意；目的IP：任意 以及来源IP：任意；目的IP：除了10.4.5.6以外任意</p>
+</li>
+<li><p>ip.src != 10.1.2.3 and ip.dst != 10.4.5.6<br>显示来源不为10.1.2.3并且目的IP不为10.4.5.6的封包。<br>换句话说，显示的封包将会为：来源IP：除了10.1.2.3以外任意；同时须满足，目的IP：除了10.4.5.6以外任意</p>
+</li>
+<li><p>tcp.port == 25<br>显示来源或目的TCP端口号为25的封包。</p>
+</li>
+<li><p>tcp.dstport == 25<br>显示目的TCP端口号为25的封包。</p>
+</li>
+<li><p>tcp.flags<br>显示包含TCP标志的封包。</p>
+</li>
+<li><p>tcp.flags.syn == 0x02<br>显示包含TCP SYN标志的封包。</p>
+</li>
+</ul>
+<p><em>如果过滤器的语法是正确的，表达式的背景呈绿色。如果呈红色，说明表达式有误。</em></p>
+<h3 id="“Follow-TCP-Stream”"><a href="#“Follow-TCP-Stream”" class="headerlink" title="“Follow TCP Stream”"></a>“Follow TCP Stream”</h3><p>流的内容出现的顺序同他们在网络中出现的顺序一致。从A到B的通信标记为红色，从B到A的通信标记为蓝色。当然，如果你喜欢的话你可以从”Edit/Preferences”菜单项的”Colores”修改颜色。</p>
+<p>非打印字符将会被显示为圆点。XXX - What about line wrapping (maximum line length) and CRNL conversions?</p>
+<p>在捕捉过程中，TCP流不能实时更新。想得到最近的内容需要重新打开对话框。</p>
+<p>你可以在此对话框执行如下操作：</p>
+<ol>
+<li>Save As 以当前选择格式保存流数据。</li>
+<li>Print 以当前选择格式打印流数据。</li>
+<li>Direction 选择流的显示方向(“Entire conversation”, “data from A to B only” or “data from B to A only”).</li>
+<li>Filter out this stream 应用一个显示过滤，在显示中排除当前选择的TCP流。</li>
+<li>Close 关闭当前对话框。移除对当前显示过滤的影响。</li>
+</ol>
+<p>你可以用以下格式浏览流数据。</p>
+<ol>
+<li>AscII。在此视图下你可以以ASCII凡是查看数据。当然最适合基于ASCII的协议用，例如HTTP.</li>
+<li>EBCDIC。For the big-iron freaks out there.（不知道这句是什么意思， EBCDIC 是IBM公司的字符二进制编码标准。）</li>
+<li>HEX Dump. 允许你查看所有数据，可能会占用大量屏幕空间。适合显示二进制协议。</li>
+<li>C Arrays. 允许你将流数据导入你自己的C语言程序。</li>
+<li>RAW。允许你载入原始数据到其他应用程序做进一步分析。显示类似与ASCII设置。但“save As”将会保存为二进制文件</li>
+</ol>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/11/19/WireShark%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
+    <time datetime="2019-11-19T04:07:50.975Z" class="entry-date">
+        2019-11-19
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2019/10/30/Sublime%20text%203%20%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="next">Sublime text 3 的使用 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2019/11/19/WireShark%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">WireShark基本使用教程</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/30/Sublime%20text%203%20%E7%9A%84%E4%BD%BF%E7%94%A8/">Sublime text 3 的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/29/First-blog/">First blog</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/29/hello-world/">hello-world</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  
+    
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2019 shengjia
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/js/share.js'];</script>
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":180,"height":210},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+
+<!--单击显示文字-->
+<script type="text/javascript" src="/js/click_show_text.js"></script>

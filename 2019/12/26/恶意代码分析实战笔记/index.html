@@ -4,6 +4,17 @@
   <meta charset="utf-8">
   
   
+  <meta name="description" content="Chapter 0 入门恶意代码分析目标定位感染的主机和文件，确定可疑二进制程序做了什么，如何在网络上检测，如何消除带来的损害。
+编写检测特征码来检测出网络中被感染的主机
+
+基于主机的检测特征码 Host-based signatures
+恶意代码创建或修改的文件
+注册表的修改
+……
+
+
+基于网络的" />
+  
 
   
   
@@ -11,14 +22,19 @@
   
   
   
-  <title>QiShengjia</title>
+  <title>恶意代码分析实战笔记 | QiShengjia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="QiShengjia">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
+  <meta name="description" content="Chapter 0 入门恶意代码分析目标定位感染的主机和文件，确定可疑二进制程序做了什么，如何在网络上检测，如何消除带来的损害。 编写检测特征码来检测出网络中被感染的主机  基于主机的检测特征码 Host-based signatures 恶意代码创建或修改的文件 注册表的修改 ……   基于网络的检测特征码 Network signatures通过检测网络流量  恶意代码分析技术基本方法：  静">
+<meta property="og:type" content="article">
+<meta property="og:title" content="恶意代码分析实战笔记">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;26&#x2F;%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0&#x2F;index.html">
 <meta property="og:site_name" content="QiShengjia">
+<meta property="og:description" content="Chapter 0 入门恶意代码分析目标定位感染的主机和文件，确定可疑二进制程序做了什么，如何在网络上检测，如何消除带来的损害。 编写检测特征码来检测出网络中被感染的主机  基于主机的检测特征码 Host-based signatures 恶意代码创建或修改的文件 注册表的修改 ……   基于网络的检测特征码 Network signatures通过检测网络流量  恶意代码分析技术基本方法：  静">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="en-resource:&#x2F;&#x2F;database&#x2F;3983:1">
+<meta property="og:updated_time" content="2019-12-26T13:36:29.485Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="en-resource:&#x2F;&#x2F;database&#x2F;3983:1">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -60,17 +76,15 @@
 </header>
 
       <div id="main" class="wrapper">
-        <div id="primary" class="site-content"><div id="content" role="main">
-  
-    <article id="post-恶意代码分析实战笔记" class="post-恶意代码分析实战笔记 post type-post status-publish format-standard hentry">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-恶意代码分析实战笔记" class="post-恶意代码分析实战笔记 post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
         
         
   
-    <h1 class="entry-title">
-      <a class="article-title" href="/2019/12/26/%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/">恶意代码分析实战笔记</a>
+    <h1 class="entry-title article-title">
+      恶意代码分析实战笔记
     </h1>
   
 
@@ -1077,250 +1091,20 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 </article>
 
 
-
-
-
-
-  
-    <article id="post-Win 10 桌面简单美化" class="post-Win 10 桌面简单美化 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2019/11/24/Win%2010%20%E6%A1%8C%E9%9D%A2%E7%AE%80%E5%8D%95%E7%BE%8E%E5%8C%96/">Win 10 桌面简单美化</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/11/24/Win%2010%20%E6%A1%8C%E9%9D%A2%E7%AE%80%E5%8D%95%E7%BE%8E%E5%8C%96/" data-id="ck3cz7fv200002wut1gxdakoy" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>&emsp;&emsp;个人喜欢优美的壁纸，干净的桌面，所以进行了win10桌面的简单美化，教程如下。</p>
-        
-          <p class="article-more-link">
-            <a href="/2019/11/24/Win%2010%20%E6%A1%8C%E9%9D%A2%E7%AE%80%E5%8D%95%E7%BE%8E%E5%8C%96/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
-        
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2019/11/24/Win%2010%20%E6%A1%8C%E9%9D%A2%E7%AE%80%E5%8D%95%E7%BE%8E%E5%8C%96/">
-    <time datetime="2019-11-24T11:43:25.567Z" class="entry-date">
-        2019-11-24
-    </time>
-</a>
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
     
     
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-WireShark基本使用教程" class="post-WireShark基本使用教程 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2019/11/19/WireShark%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">WireShark基本使用教程</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/11/19/WireShark%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" data-id="ck35dr46f00018outfc1udeyy" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>&emsp;&emsp;WireShark是一款抓包软件，比较易用，在平常可以利用它抓包，分析协议或者监控网络，是一个比较好的工具，因为最近在用这个分析智能摄像头流量，所以就总结一下wireshark的使用方法。方便供大家学习或留着自个儿以后看。</p>
-        
-          <p class="article-more-link">
-            <a href="/2019/11/19/WireShark%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
-        
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2019/11/19/WireShark%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
-    <time datetime="2019-11-19T04:07:50.975Z" class="entry-date">
-        2019-11-19
-    </time>
-</a>
+        <span class="nav-next"><a href="/2019/11/24/Win%2010%20%E6%A1%8C%E9%9D%A2%E7%AE%80%E5%8D%95%E7%BE%8E%E5%8C%96/" rel="next">Win 10 桌面简单美化 <span class="meta-nav">→</span></a></span>
     
-    
-    </footer>
-</article>
+</nav><!-- .nav-single -->
 
 
 
 
 
 
-  
-    <article id="post-Sublime text 3 的使用" class="post-Sublime text 3 的使用 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2019/10/30/Sublime%20text%203%20%E7%9A%84%E4%BD%BF%E7%94%A8/">Sublime text 3 的使用</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/10/30/Sublime%20text%203%20%E7%9A%84%E4%BD%BF%E7%94%A8/" data-id="ck35dr46h00028outbyhn20rr" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>Sublime text 3 的下载安装<br>Sublime text 3 的使用技巧<br>Sublime text 3 的进阶攻略</p>
-        
-          <p class="article-more-link">
-            <a href="/2019/10/30/Sublime%20text%203%20%E7%9A%84%E4%BD%BF%E7%94%A8/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
-        
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2019/10/30/Sublime%20text%203%20%E7%9A%84%E4%BD%BF%E7%94%A8/">
-    <time datetime="2019-10-30T01:52:09.271Z" class="entry-date">
-        2019-10-30
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-First-blog" class="post-First-blog post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2019/10/29/First-blog/">First blog</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/10/29/First-blog/" data-id="ck35dr46b00008out971nbcf3" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>Finally, my first blog was built !</p>
-        
-          <p class="article-more-link">
-            <a href="/2019/10/29/First-blog/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
-        
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2019/10/29/First-blog/">
-    <time datetime="2019-10-29T11:23:21.000Z" class="entry-date">
-        2019-10-29
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="post-hello-world post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2019/10/29/hello-world/">hello-world</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/10/29/hello-world/" data-id="ck35dr46n00038out85l8bdtq" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <hr>
-<p>title: Hello World</p>
-<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2019/10/29/hello-world/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
-        
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2019/10/29/hello-world/">
-    <time datetime="2019-10-29T11:08:46.472Z" class="entry-date">
-        2019-10-29
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-  
 
 </div></div>
         <div id="secondary" class="widget-area" role="complementary">

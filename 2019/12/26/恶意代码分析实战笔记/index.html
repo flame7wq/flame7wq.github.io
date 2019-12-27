@@ -24,7 +24,7 @@
 <meta property="og:description" content="Practical Malware Analysis The Hands-On Guide to Dissecting Malicious Software 恶意代码分析实战期末复习笔记 by757">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;flame7wq&#x2F;MarkdownPic&#x2F;master&#x2F;Image.png">
-<meta property="og:updated_time" content="2019-12-27T00:37:26.240Z">
+<meta property="og:updated_time" content="2019-12-27T01:14:07.974Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;flame7wq&#x2F;MarkdownPic&#x2F;master&#x2F;Image.png">
   
@@ -92,8 +92,7 @@
         <p>Practical Malware Analysis The Hands-On Guide to Dissecting Malicious Software</p>
 <p>恶意代码分析实战期末复习笔记 by757</p>
 <a id="more"></a>
-<h1 id="Chapter-0-入门"><a href="#Chapter-0-入门" class="headerlink" title="Chapter 0 入门"></a>Chapter 0 入门</h1><h2 id="恶意代码分析目标"><a href="#恶意代码分析目标" class="headerlink" title="恶意代码分析目标"></a>恶意代码分析目标</h2><p>定位感染的主机和文件，确定可疑二进制程序做了什么，如何在网络上检测，如何消除带来的损害。</p>
-<p>编写检测特征码来检测出网络中被感染的主机</p>
+<h1 id="Chapter-0-入门"><a href="#Chapter-0-入门" class="headerlink" title="Chapter 0 入门"></a>Chapter 0 入门</h1><h2 id="恶意代码分析目标"><a href="#恶意代码分析目标" class="headerlink" title="恶意代码分析目标"></a>恶意代码分析目标</h2><p>&emsp;&emsp;定位感染的主机和文件，确定可疑二进制程序做了什么，如何在网络上检测，如何消除带来的损害。<br>之后编写检测特征码来检测出网络中被感染的主机。</p>
 <ul>
 <li>基于主机的检测特征码 Host-based signatures<ul>
 <li>恶意代码创建或修改的文件</li>
@@ -111,7 +110,7 @@
 <li>静态分析Static analysis （without running malware）</li>
 <li>动态分析Dynamic analysis （running it）</li>
 </ul>
-<p>又进一步分为基础技术与高级技术</p>
+<p>又进一步分为基础技术与高级技术。</p>
 <h2 id="恶意代码类型"><a href="#恶意代码类型" class="headerlink" title="恶意代码类型"></a>恶意代码类型</h2><ul>
 <li>后门 Backdoor</li>
 <li>僵尸网络 Botnet</li>
@@ -134,8 +133,7 @@
 <li>发送垃圾邮件的恶意代码 Spam-sending malware</li>
 <li>蠕虫或计算机病毒 Worm or virus</li>
 </ul>
-<p>恶意代码经常会跨越多个类别。</p>
-<p>恶意代码还可根据攻击者的类型分为大众性的和针对性的两类。<br>前者如勒索软件，撒网捞鱼，这类普遍但不复杂。<br>后者如特制后门，不广泛传播，威胁大且复杂。</p>
+<p>&emsp;&emsp;恶意代码经常会跨越多个类别。<br>&emsp;&emsp;恶意代码还可根据攻击者的类型分为大众性的和针对性的两类。前者如勒索软件，撒网捞鱼，这类普遍但不复杂。后者如特制后门，不广泛传播，威胁大且复杂。</p>
 <h2 id="恶意代码分析通用规则"><a href="#恶意代码分析通用规则" class="headerlink" title="恶意代码分析通用规则"></a>恶意代码分析通用规则</h2><ol>
 <li>不要过于陷入细节，进入细节钱有一个概要性的了解</li>
 <li>使用不同的工具和方法</li>
@@ -147,11 +145,8 @@
 <li>使用哈希来识别恶意代码</li>
 <li>从文件的字符串列表，函数和文件头信息中发掘有用的信息</li>
 </ul>
-<h2 id="反病毒引擎扫描"><a href="#反病毒引擎扫描" class="headerlink" title="反病毒引擎扫描"></a>反病毒引擎扫描</h2><p>第一步最好拿多个反病毒软件扫描样本文件，看是否有反病毒引擎已经识别它。<br>常见的反病毒软件网站有<a href="https://www.virustotal.com/gui/home/upload" target="_blank" rel="noopener">VirusTotal</a>和<a href="https://www.virscan.org/" target="_blank" rel="noopener">VirSCAN</a><br>它们会根据扫描情况生成报告</p>
-<p>反病毒软件并不完美，它们主要依靠一个已知恶意代码可识别片段的特征数据库（病毒文件特征库），以及基于行为和模式匹配的分析（启发式检测）来识别可疑文件。</p>
-<p>so，恶意代码编写者可以轻易的进行修改来绕过检测</p>
-<h2 id="Hashing-A-Fingerprint-for-Malware"><a href="#Hashing-A-Fingerprint-for-Malware" class="headerlink" title="Hashing: A Fingerprint for Malware"></a>Hashing: A Fingerprint for Malware</h2><p>哈希是一种用来唯一标识恶意代码的常用方法，产生哈希值（类似于指纹）<br>MD5 、 SHA-1 、 SHA-256 …</p>
-<p>免费工具：mde5deep、WinMD5</p>
+<h2 id="反病毒引擎扫描"><a href="#反病毒引擎扫描" class="headerlink" title="反病毒引擎扫描"></a>反病毒引擎扫描</h2><p>&emsp;&emsp;第一步最好拿多个反病毒软件扫描样本文件，看是否有反病毒引擎已经识别它。<br>常见的反病毒软件网站有<a href="https://www.virustotal.com/gui/home/upload" target="_blank" rel="noopener">VirusTotal</a>和<a href="https://www.virscan.org/" target="_blank" rel="noopener">VirSCAN</a>，它们会根据扫描情况生成报告<br>&emsp;&emsp;反病毒软件并不完美，它们主要依靠一个已知恶意代码可识别片段的特征数据库（病毒文件特征库），以及基于行为和模式匹配的分析（启发式检测）来识别可疑文件。<br>so，恶意代码编写者可以轻易的进行修改来绕过检测。</p>
+<h2 id="Hashing-A-Fingerprint-for-Malware"><a href="#Hashing-A-Fingerprint-for-Malware" class="headerlink" title="Hashing: A Fingerprint for Malware"></a>Hashing: A Fingerprint for Malware</h2><p>&emsp;&emsp;哈希是一种用来唯一标识恶意代码的常用方法，产生哈希值（类似于指纹） 如MD5 、 SHA-1 、 SHA-256 …<br>免费工具：mde5deep、WinMD5</p>
 <ul>
 <li>哈希值作为标签使用</li>
 <li>与其他分析师分享，帮助他们识别恶意代码</li>
@@ -161,25 +156,20 @@
 <blockquote>
 <p>微软使用“双字节字符串”（wide character string）描述Windows系统中实现的Unicode字符串。</p>
 </blockquote>
-<p>ASCII和Unicode存储字符序列时都以NULL结束，前者使用1个字节，后者则为两个字节</p>
-<p>有时Strings检测出的并非真正的字符串，如内存地址、CPU指令序列、数据</p>
-<p>Windows函数名通常以打大写字母开头后面单词的首字母均大写</p>
-<h2 id="Packed-and-Obfuscated-Malware"><a href="#Packed-and-Obfuscated-Malware" class="headerlink" title="Packed and Obfuscated Malware"></a>Packed and Obfuscated Malware</h2><p>恶意代码使用加壳或混淆技术进行压缩，使得很难被检测和分析</p>
+<p>&emsp;&emsp;ASCII和Unicode存储字符序列时都以NULL结束，前者使用1个字节，后者则为两个字节。<br>&emsp;&emsp;有时Strings检测出的并非真正的字符串，如内存地址、CPU指令序列、数据。<br>Windows函数名通常以打大写字母开头后面单词的首字母均大写。</p>
+<h2 id="Packed-and-Obfuscated-Malware"><a href="#Packed-and-Obfuscated-Malware" class="headerlink" title="Packed and Obfuscated Malware"></a>Packed and Obfuscated Malware</h2><p>&emsp;&emsp;恶意代码使用加壳或混淆技术进行压缩，使得很难被检测和分析。</p>
 <blockquote>
-<p>Packed and obfuscated code will often include at least the functions <strong>LoadLibrary</strong> and <strong>GetProcAddress</strong>, which are used to load and gain access to additional functions.</p>
+<p>Packed and obfuscated code will often include at least the functions <strong>LoadLibrary</strong> and <strong>GetProcAddress</strong>, which are used to load and gain access to additional functions.<br>&emsp;&emsp;加壳的程序运行时会先运行一小段脱壳代码（可执行程序源文件的字符串列表、导入表和其他信息都被压缩了）</p>
 </blockquote>
-<p>加壳的程序运行时会先运行一小段脱壳代码<br>（可执行程序源文件的字符串列表、导入表和其他信息都被压缩了）</p>
-<p>PEiD检测加壳<br>该工具可识别编译器和加壳器</p>
-<p><a href="https://upx.github.io/" target="_blank" rel="noopener">UPX</a>为常见的的加壳工具，可下载进行脱壳<br><code>upx -d PackedProgram.exe</code></p>
-<h2 id="PE文件格式"><a href="#PE文件格式" class="headerlink" title="PE文件格式"></a>PE文件格式</h2><p>可移植执行（Portable Executable）文件格式是Windows可执行文件、对象代码和DLL所使用的标准格式。实质上是一种数据结构。</p>
-<p>PE文件以文件头开始，其中包括代码信息、应用程序类型、所需库函数和空间要求。  PE文件头信息价值高。</p>
-<h2 id="链接库与函数"><a href="#链接库与函数" class="headerlink" title="链接库与函数"></a>链接库与函数</h2><p>可执行程序大的导入表信息极具价值，导入函数是存储在另一个程序中的函数。<br>常见函数链接方式有：</p>
+<p>&emsp;&emsp;PEiD 检测加壳，该工具可识别编译器和加壳器<br>&emsp;&emsp;<a href="https://upx.github.io/" target="_blank" rel="noopener">UPX</a>为常见的的加壳工具，可下载进行脱壳<br><code>upx -d PackedProgram.exe</code></p>
+<h2 id="PE文件格式"><a href="#PE文件格式" class="headerlink" title="PE文件格式"></a>PE文件格式</h2><p>&emsp;&emsp;可移植执行（Portable Executable）文件格式是Windows可执行文件、对象代码和DLL所使用的标准格式。实质上是一种数据结构。<br>&emsp;&emsp;PE文件以文件头开始，其中包括代码信息、应用程序类型、所需库函数和空间要求。  PE文件头信息价值高。</p>
+<h2 id="链接库与函数"><a href="#链接库与函数" class="headerlink" title="链接库与函数"></a>链接库与函数</h2><p>&emsp;&emsp;可执行程序大的导入表信息极具价值，导入函数是存储在另一个程序中的函数。<br>常见函数链接方式有：</p>
 <ul>
 <li>静态链接</li>
 <li>运行时链接</li>
 <li>动态链接</li>
 </ul>
-<p>工具 <a href="http://www.dependencywalker.com/" target="_blank" rel="noopener">Dependency Walker</a> 可用于探索动态链接函数</p>
+<p>工具 <a href="http://www.dependencywalker.com/" target="_blank" rel="noopener">Dependency Walker</a> 可用于探索动态链接函数。</p>
 <p>常见的DLL程序</p>
 <table>
 <thead>
@@ -230,7 +220,7 @@
 <li>Software\Microsoft\Windows\CurrentVersion\Run 这是恶意代码非常普遍使用的注册表键值、控制Windows自启动程序</li>
 <li>加壳程序比包含导入函数 LoadLibararyA 和 GetPorcAddress</li>
 </ul>
-<h2 id="PE文件头与分节"><a href="#PE文件头与分节" class="headerlink" title="PE文件头与分节"></a>PE文件头与分节</h2><p>the most common and interesting sections in a PE file：</p>
+<h2 id="PE文件头与分节"><a href="#PE文件头与分节" class="headerlink" title="PE文件头与分节"></a>PE文件头与分节</h2><p>The most common and interesting sections in a PE file：</p>
 <table>
 <thead>
 <tr>
@@ -263,7 +253,7 @@
 <td></td>
 </tr>
 </tbody></table>
-<p>运用工具PEview 来分析PE文件<br>MAGE_OPTIONAL_HEADER项中可查看编译时间</p>
+<p>运用工具PEview 来分析PE文件，其中MAGE_OPTIONAL_HEADER项中可查看编译时间</p>
 <blockquote>
 <p>所有的Delphi程序都使用统一的编译时间 1992年6月19日<br>称职的编写者可以很轻易伪造编译时间</p>
 </blockquote>
@@ -271,17 +261,15 @@
 <blockquote>
 <p>当分节在内存中叫磁盘上占更多空间Virtual Size&gt;Size of Raw Data，则往往意味着加壳代码的存在，特别是.text</p>
 </blockquote>
-<h3 id="资源节"><a href="#资源节" class="headerlink" title="资源节"></a>资源节</h3><p>使用工具 <a href="http://www.angusj.com/resourcehacker/" target="_blank" rel="noopener">Resource Hacker</a>浏览.rsrc节，也可查看大量的图标文件</p>
+<h3 id="资源节"><a href="#资源节" class="headerlink" title="资源节"></a>资源节</h3><p>&emsp;&emsp;使用工具 <a href="http://www.angusj.com/resourcehacker/" target="_blank" rel="noopener">Resource Hacker</a>浏览.rsrc节，也可查看大量的图标文件。</p>
 <blockquote>
-<p>恶意代码经常会把一个嵌入的程序或者驱动放在资源节中，在程序运行之前，他们会将其提取出来，Resource Hacker可单独分析这些文件</p>
+<p>恶意代码经常会把一个嵌入的程序或者驱动放在资源节中，在程序运行之前，他们会将其提取出来，Resource Hacker可单独分析这些文件。</p>
 </blockquote>
-<p>其他PE文件工具<a href="http://www.smidgeonsoft.prohosting.com/pebrowsepro-file-viewer.html" target="_blank" rel="noopener">PEBrowse Professional</a>和<a href="http://www.heaventools.com/" target="_blank" rel="noopener">PE Explorer</a></p>
-<p>PE文件头可获得导入函数、导出函数、时间戳、分节、子系统（指示程序是一个命令行还是图形界面应用程序）、资源等信息</p>
-<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>利用一套相对简单的工具，我们就可以对恶意代码进行静态分析，来获得一些它功能上的观察。</p>
-<h1 id="Chapter2-虚拟机中分析恶意代码"><a href="#Chapter2-虚拟机中分析恶意代码" class="headerlink" title="Chapter2 虚拟机中分析恶意代码"></a>Chapter2 虚拟机中分析恶意代码</h1><p>MALWARE ANALYSIS IN VIRTUAL MACHINES<br>动态分析恶意代码之前必须建立一个安全环境，以预防迅速蔓延至网络中的其他主机，规避不必要的风险。</p>
-<p>想安全地研究恶意代码，需要专用的物理主机或是虚拟机。并进行网络隔离防止传播蔓延。物理机上分析恶意代码缺点就是缺乏互联网连接和恶意代码难以移除。优势在于恶意代码会进行反虚拟机行为。但由于虚拟机的简单，便捷，大多数动态分析选择虚拟机。</p>
-<p>虚拟接采用主机模式（host-only），创建多个虚拟机进行网络连接。善用虚拟机的快照功能，他很方便。</p>
-<h1 id="Chapter3-动态分析基础技术"><a href="#Chapter3-动态分析基础技术" class="headerlink" title="Chapter3 动态分析基础技术"></a>Chapter3 动态分析基础技术</h1><p>动态分析技术是在运行恶意代码之后进行检查的过程，在静态分析基础技术进入到死胡同之后。包括在恶意代码运行时刻进行监控，以及在恶意代码运行之后检查系统情况。</p>
+<p>&emsp;&emsp;其他PE文件工具<a href="http://www.smidgeonsoft.prohosting.com/pebrowsepro-file-viewer.html" target="_blank" rel="noopener">PEBrowse Professional</a>和<a href="http://www.heaventools.com/" target="_blank" rel="noopener">PE Explorer</a><br>&emsp;&emsp;PE文件头可获得导入函数、导出函数、时间戳、分节、子系统（指示程序是一个命令行还是图形界面应用程序）、资源等信息。</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>&emsp;&emsp;利用一套相对简单的工具，我们就可以对恶意代码进行静态分析，来获得一些它功能上的观察。</p>
+<h1 id="Chapter2-虚拟机中分析恶意代码"><a href="#Chapter2-虚拟机中分析恶意代码" class="headerlink" title="Chapter2 虚拟机中分析恶意代码"></a>Chapter2 虚拟机中分析恶意代码</h1><p>&emsp;&emsp;MALWARE ANALYSIS IN VIRTUAL MACHINES<br>&emsp;&emsp;动态分析恶意代码之前必须建立一个安全环境，以预防迅速蔓延至网络中的其他主机，规避不必要的风险。</p>
+<p>&emsp;&emsp;想安全地研究恶意代码，需要专用的物理主机或是虚拟机。并进行网络隔离防止传播蔓延。物理机上分析恶意代码缺点就是缺乏互联网连接和恶意代码难以移除。优势在于恶意代码会进行反虚拟机行为。但由于虚拟机的简单，便捷，大多数动态分析选择虚拟机。<br>&emsp;&emsp;虚拟接采用主机模式（host-only），创建多个虚拟机进行网络连接。善用虚拟机的快照功能，他很方便。</p>
+<h1 id="Chapter3-动态分析基础技术"><a href="#Chapter3-动态分析基础技术" class="headerlink" title="Chapter3 动态分析基础技术"></a>Chapter3 动态分析基础技术</h1><p>&emsp;&emsp;动态分析技术是在运行恶意代码之后进行检查的过程，在静态分析基础技术进入到死胡同之后。包括在恶意代码运行时刻进行监控，以及在恶意代码运行之后检查系统情况。</p>
 <p>Advantages:</p>
 <ul>
 <li>Observe the malware’s true functionality</li>
@@ -293,8 +281,7 @@
 <li>Not all code paths may execute when a piece of malware is run<br>(such as command-line malware that requires arguments)</li>
 </ul>
 <p>此时，最好的办法是利用高级的动态或静态分析技术。</p>
-<h2 id="沙箱"><a href="#沙箱" class="headerlink" title="沙箱"></a>沙箱</h2><p>Sandbox is a security mechanism for running untrusted programs in a safe environment without fear of harming“real” .</p>
-<p>沙箱包括一个虚拟环境，通过某种方式模拟网络服务，确保被测试的样本能被正常执行。</p>
+<h2 id="沙箱"><a href="#沙箱" class="headerlink" title="沙箱"></a>沙箱</h2><p>&emsp;&emsp;Sandbox is a security mechanism for running untrusted programs in a safe environment without fear of harming“real” .<br>&emsp;&emsp;沙箱包括一个虚拟环境，通过某种方式模拟网络服务，确保被测试的样本能被正常执行。</p>
 <p>Using a Malware Sandbox:</p>
 <ul>
 <li><strong>Norman Sandbox</strong></li>
@@ -330,12 +317,10 @@
 </blockquote>
 <p>Launch malicious DLLs<br><code>C:\&gt;rundll32.exe DLLname, Export arguments
 C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a function name or ordinalselected from the exported function table in the DLL.</em></p>
-<p>还可修改PE头中，将IMAGE_FILE_HEADER特征域里擦除IMAGE_FILE_DLL (0x2000) 标记。</p>
-<p>DLL形态的恶意代码也有可能需要被安装城一个服务。</p>
+<p>还可修改PE头中，将IMAGE_FILE_HEADER特征域里擦除IMAGE_FILE_DLL (0x2000) 标记。<br>DLL形态的恶意代码也有可能需要被安装成一个服务。</p>
 <p><strong>net start</strong> 命令可以启动windows指定服务<br>Windows服务的注册表项位于HKLM\SYSTEM\CurrentControlSet\Services</p>
-<h2 id="进程监视器"><a href="#进程监视器" class="headerlink" title="进程监视器"></a>进程监视器</h2><p><a href="https://web.archive.org/web/20110101122655/http:/technet.microsoft.com/en-us/sysinternals/bb896645" target="_blank" rel="noopener">procmon</a></p>
-<p>An advanced monitoring tool for Windows that provides a way to  monitor certain registry, file system, network, process, and thread activity.<br>它结合了文件监视器FileMon和注册表监视器RegMon的功能</p>
-<p>它一旦运行起来就会监控所有能捕捉的系统调用，而且他是用内存来记录事件，所以可能会耗尽内存而使虚拟机崩溃。</p>
+<h2 id="进程监视器"><a href="#进程监视器" class="headerlink" title="进程监视器"></a>进程监视器</h2><p><a href="https://web.archive.org/web/20110101122655/http:/technet.microsoft.com/en-us/sysinternals/bb896645" target="_blank" rel="noopener">Procmon</a></p>
+<p>&emsp;&emsp;An advanced monitoring tool for Windows that provides a way to  monitor certain registry, file system, network, process, and thread activity.<br>它结合了文件监视器FileMon和注册表监视器RegMon的功能。<br>&emsp;&emsp;它一旦运行起来就会监控所有能捕捉的系统调用，而且他是用内存来记录事件，所以可能会耗尽内存而使虚拟机崩溃。</p>
 <p>善用procmon的过滤功能：</p>
 <ul>
 <li>过滤出运行的恶意代码</li>
@@ -343,7 +328,7 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 <li>常用过滤 Process Name, Operation, and Detail</li>
 </ul>
 <p>过滤器仅仅用于显示过滤，所有信息都会被记录。</p>
-<h2 id="进程浏览器"><a href="#进程浏览器" class="headerlink" title="进程浏览器"></a>进程浏览器</h2><p><a href="https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer" target="_blank" rel="noopener">Process Explorer</a>, free from Microsoft, is an extremely powerful task manager that should be running when you are performing dynamic analysis.</p>
+<h2 id="进程浏览器"><a href="#进程浏览器" class="headerlink" title="进程浏览器"></a>进程浏览器</h2><p>&emsp;&emsp;<a href="https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer" target="_blank" rel="noopener">Process Explorer</a>, free from Microsoft, is an extremely powerful task manager that should be running when you are performing dynamic analysis.</p>
 <ul>
 <li>Services are highlighted in pink, </li>
 <li>processes in blue, </li>
@@ -351,12 +336,10 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 <li>terminated processes in red. </li>
 <li>Green and red highlights are temporary, and are removed after the process has started or terminated</li>
 </ul>
-<p>Process Explorer shows five columns: Process (the process name), PID (the process identifier), CPU (CPU usage), Description, and Company Name.<br><em>–The view updates every second.</em> </p>
-<p>使用verify可以检验该镜像文件是否具有微软的签名认证，但攻击者使用进程替换技术则该功能无效。</p>
-<p>比较字符串在内存中和在磁盘上差异可以识别进程替换技术。</p>
-<p>进程浏览器还可以用来分析恶意文档。</p>
+<p>&emsp;&emsp;Process Explorer shows five columns: Process (the process name), PID (the process identifier), CPU (CPU usage), Description, and Company Name. <em>–The view updates every second.</em> </p>
+<p>&emsp;&emsp;使用verify可以检验该镜像文件是否具有微软的签名认证，但攻击者使用进程替换技术则该功能无效。<br>比较字符串在内存中和在磁盘上差异可以识别进程替换技术。<br>进程浏览器还可以用来分析恶意文档。</p>
 <h2 id="用Regshot比较注册表快照"><a href="#用Regshot比较注册表快照" class="headerlink" title="用Regshot比较注册表快照"></a>用Regshot比较注册表快照</h2><p><a href="https://sourceforge.net/projects/regshot/" target="_blank" rel="noopener">Regshot</a>是一个开源的注册表比较工具，他可以让我们比较两个注册表的快照，并发现差异。</p>
-<h2 id="模拟网络"><a href="#模拟网络" class="headerlink" title="模拟网络"></a>模拟网络</h2><p>Malware often beacons out and eventually communicates with a command-and-control server</p>
+<h2 id="模拟网络"><a href="#模拟网络" class="headerlink" title="模拟网络"></a>模拟网络</h2><p>&emsp;&emsp;Malware often beacons out and eventually communicates with a command-and-control server.</p>
 <p>Network indicators：</p>
 <ul>
 <li>DNS names</li>
@@ -364,10 +347,10 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 <li>packet signatures</li>
 </ul>
 <p><a href="https://www.aldeid.com/wiki/Mandiant-ApateDNS" target="_blank" rel="noopener">ApateDNS</a>一款来自Mandiant公司的免费软件，用来查看恶意代码发出的DNS请求最快速的方式。<br>needs <a href="https://www.microsoft.com/en-us/download/details.aspx?id=17851" target="_blank" rel="noopener">.NetFramework 4.0/3.5</a></p>
-<p>使用Netcat进行监听<br>使用wireshark进行数据包监听<br>使用<a href="http://www.inetsim.org/packages.html" target="_blank" rel="noopener">INetSim</a>是一款基于Linux模拟常见网络服务的免费软件</p>
-<h2 id="Conclusion-1"><a href="#Conclusion-1" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>恶意代码的动态分析基础技术能帮助和确认基本的静态分析结果。<br>但也有不足，我们需要逆向分析协议，下一步就是在二进制指令级别进行反汇编与解剖的静态分析高级技术。</p>
+<p>使用Netcat进行监听<br>使用wireshark进行数据包监听<br>使用<a href="http://www.inetsim.org/packages.html" target="_blank" rel="noopener">INetSim</a>是一款基于Linux模拟常见网络服务的免费软件。</p>
+<h2 id="Conclusion-1"><a href="#Conclusion-1" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>&emsp;&emsp;恶意代码的动态分析基础技术能帮助和确认基本的静态分析结果。<br>&emsp;&emsp;但也有不足，我们需要逆向分析协议，下一步就是在二进制指令级别进行反汇编与解剖的静态分析高级技术。</p>
 <h1 id="Chapter4-A-Crash-Course-in-X86-Disassembly"><a href="#Chapter4-A-Crash-Course-in-X86-Disassembly" class="headerlink" title="Chapter4 A Crash Course in X86 Disassembly"></a>Chapter4 A Crash Course in X86 Disassembly</h1><p><img src="https://raw.githubusercontent.com/flame7wq/MarkdownPic/master/Image.png" alt="img.png"></p>
-<h2 id="抽象层次"><a href="#抽象层次" class="headerlink" title="抽象层次"></a>抽象层次</h2><p>通常，计算机系统被描述为以下六个抽象层次，越高的抽象层次越接近顶端，一个抽象层次越低，他的跨系统移植性就越差。</p>
+<h2 id="抽象层次"><a href="#抽象层次" class="headerlink" title="抽象层次"></a>抽象层次</h2><p>&emsp;&emsp;通常，计算机系统被描述为以下六个抽象层次，越高的抽象层次越接近顶端，一个抽象层次越低，他的跨系统移植性就越差。</p>
 <ol>
 <li>硬件 Hardware<ul>
 <li>唯一的物理层，由电子电路组成，实现XOR门、AND门、NOT门和OR门等逻辑运算器的复杂组合，aka. 数字逻辑。</li>
@@ -383,7 +366,7 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 </li>
 <li>低级语言 Low-level languages <ul>
 <li>主要是汇编语言，我们使用反汇编器来生成低级语言的文本。<blockquote>
-<p>在获取不到高级语言源码时，汇编语言是从机器码中能可信并保持一致性地还原得到的最高一层语言。</p>
+<p>在获取不到高级语言源码时，汇编语言是从机器码中能可信并保持一致性地还原得到的最高一层语言。 </p>
 </blockquote>
 </li>
 </ul>
@@ -399,7 +382,7 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 </ul>
 </li>
 </ol>
-<h2 id="逆向工程"><a href="#逆向工程" class="headerlink" title="逆向工程"></a>逆向工程</h2><p>恶意代码存储在磁盘上时，通常是机器码层的二进制形式。我们将而已代码二进制文件作为输入经过反汇编器形成汇编语言代码。<br>汇编语言实际上是一类语言的统称，每种汇编语言的方言，都是用来对一类微处理器家族编程的，例如，X86、X64、SPARC、PowerPC、MIPS、ARM等。目前，x86是PC上最流行的体系结构。<br>X86又称Intel IA-32，是大部分32位PC使用的体系结构。正因如此，大部分恶意代码时x86编译的。</p>
+<h2 id="逆向工程"><a href="#逆向工程" class="headerlink" title="逆向工程"></a>逆向工程</h2><p>&emsp;&emsp;恶意代码存储在磁盘上时，通常是机器码层的二进制形式。我们将而已代码二进制文件作为输入经过反汇编器形成汇编语言代码。<br>&emsp;&emsp;汇编语言实际上是一类语言的统称，每种汇编语言的方言，都是用来对一类微处理器家族编程的，例如，X86、X64、SPARC、PowerPC、MIPS、ARM等。目前，x86是PC上最流行的体系结构。X86又称Intel IA-32，是大部分32位PC使用的体系结构。正因如此，大部分恶意代码时x86编译的。</p>
 <h2 id="x86体系结构"><a href="#x86体系结构" class="headerlink" title="x86体系结构"></a>x86体系结构</h2><p>大部分现代计算机体系结构在内部实现上遵循冯诺依曼结构，该结构包括3种硬件组件：</p>
 <ul>
 <li>CPU，执行代码</li>
@@ -426,9 +409,8 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 </ul>
 </li>
 </ol>
-<p><strong>指令</strong><br>指令instructions是汇编程序的构成块。x86中，指令由一个助记符以及零个或多个操作数组成。<br><code>mov ecx, 0x42 →B9 42 00 00 00</code></p>
-<p><strong>操作码和字节序</strong><br>反汇编器将操作码翻译为人类易读的指令，如0xB9对应 mov ecx.</p>
-<p>数据的字节序（Endianness）是指在一个大数据项中，最高位（大端，big-endian）还是最低位（小端-little-endian）被排在第一位（即排在最低的地址上）</p>
+<p><strong>指令</strong><br>&emsp;&emsp;指令instructions是汇编程序的构成块。x86中，指令由一个助记符以及零个或多个操作数组成。<br><code>mov ecx, 0x42 →B9 42 00 00 00</code></p>
+<p><strong>操作码和字节序</strong><br>&emsp;&emsp;反汇编器将操作码翻译为人类易读的指令，如0xB9对应 mov ecx.<br>&emsp;&emsp;数据的字节序（Endianness）是指在一个大数据项中，最高位（大端，big-endian）还是最低位（小端-little-endian）被排在第一位（即排在最低的地址上）</p>
 <ul>
 <li>x86使用小端字节序。</li>
 <li>网络数据使用大端字节序。（所以恶意代码在网络通信时有必要改变字节序）</li>
@@ -459,7 +441,7 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 </li>
 <li>指令指针 EIP<ul>
 <li>EIP又称指令指针或程序计数器，唯一作用是告诉处理器接下来要做什么<blockquote>
-<p>控制了EIP，也就控制了CPU将要执行什么，这也是攻击者试图通过漏洞利用获得对EIP的控制。通常，攻击者先要使攻击代码进入内存，然后改变EIP使其指向那段代码，使其攻击系统。</p>
+<p>&emsp;&emsp;控制了EIP，也就控制了CPU将要执行什么，这也是攻击者试图通过漏洞利用获得对EIP的控制。通常，攻击者先要使攻击代码进入内存，然后改变EIP使其指向那段代码，使其攻击系统。</p>
 </blockquote>
 </li>
 </ul>
@@ -488,7 +470,7 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 <li>逻辑运算符or/and/xor destination, value</li>
 <li>寄存器的移位运算符 shr/shl destination, count</li>
 <li>循环移位 ror/rol<blockquote>
-<p>在分析恶意代码时，一个函数中只有逻辑和移位指令，且反复出现，很可能遇到一个加密或者压缩函数。<br>不要陷进去，将它做好标记继续后面的分析。</p>
+<p>&emsp;&emsp;在分析恶意代码时，一个函数中只有逻辑和移位指令，且反复出现，很可能遇到一个加密或者压缩函数。<br>不要陷进去，将它做好标记继续后面的分析。</p>
 </blockquote>
 </li>
 <li>NOP xchg eax, eax 的伪名字，即空指令什么也不做（0x90）</li>
@@ -498,7 +480,7 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 <li>test value，value<br>test和and指令功能一样，但它不会修改使用的操作数，只设置标志位，<br>Only sets the ZF (Zero Flag): test if eax is zero.</li>
 <li>cmp des, src<br>cmp指令和sub指令功能一样，与test一样也不会影响操作数<br>其结果使CF和ZF会变化<br>dst &lt; src zf=0 cf=1</li>
 </ol>
-<p><strong>分支指令</strong><br>最常见的分支指令是跳转指令 jmp location</p>
+<p><strong>分支指令</strong><br>&emsp;&emsp;最常见的分支指令是跳转指令 jmp location</p>
 <ol>
 <li>jmp为无条件跳转</li>
 <li>条件跳转用标志位来决定是跳转还是执行下一条指令<ul>
@@ -508,16 +490,14 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 </ul>
 </li>
 </ol>
-<p><strong>重复指令</strong><br>重复指令是一组操作缓冲区的指令，数据缓冲区通常是字节数组的形式，也可以是单字或双字<br>movsx, cmpsx, stosx, scasx<br>–x = b, w, or d for byte, word, and double word</p>
-<p>rep指令终止条件与ECX是否为0有关</p>
-<p><strong>栈</strong><br>A stack is a last in, first out (LIFO) structure.</p>
-<p>x86对栈有内建支持，使用ESP和EBP。<br>与栈有关的指令有push、pop、call、leave、enter和ret</p>
-<p>在内存中，栈被分配为自顶向下的，即向下生长，最高的地址最先被使用。</p>
-<p>栈只能用于短期存储，经常保存局部变量、参数和返回地址。其主要用途是管理函数调用之间的数据交换。</p>
+<p><strong>重复指令</strong><br>&emsp;&emsp;重复指令是一组操作缓冲区的指令，数据缓冲区通常是字节数组的形式，也可以是单字或双字<br>movsx, cmpsx, stosx, scasx<br>–x = b, w, or d for byte, word, and double word</p>
+<p>&emsp;&emsp;rep指令终止条件与ECX是否为0有关</p>
+<p><strong>栈</strong><br>&emsp;&emsp;A stack is a last in, first out (LIFO) structure.</p>
+<p>&emsp;&emsp;x86对栈有内建支持，使用ESP和EBP。与栈有关的指令有push、pop、call、leave、enter和ret.在内存中，栈被分配为自顶向下的，即向下生长，最高的地址最先被使用。<br>&emsp;&emsp;栈只能用于短期存储，经常保存局部变量、参数和返回地址。其主要用途是管理函数调用之间的数据交换。</p>
 <blockquote>
 <p>局部变量从 ebp-4 开始，<br>参数： ebp+8<br>eip： ebp+4<br>ebp：原来的栈底（调用前的ebp）</p>
 </blockquote>
-<p>调用约定 <strong>cdecl</strong><br>The cdecl (which stands for C declaration) is a calling convention that originates from the C programming languageand is used by many C compilers for the x86 architecture.<br>函数返回结果存在eax中，浮点数值存在ST0 x87 寄存器<br>ST0~ST7在调用新函数之前必须为空</p>
+<p>调用约定 <strong>cdecl</strong><br>The cdecl (which stands for C declaration) is a calling convention that originates from the C programming languageand is used by many C compilers for the x86 architecture.<br>函数返回结果存在eax中，浮点数值存在ST0 x87 寄存器,ST0~ST7在调用新函数之前必须为空</p>
 <p>函数实现最常用的流程：</p>
 <ol>
 <li>使用push将参数压入栈中</li>
@@ -536,21 +516,18 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 <blockquote>
 <p>局部变量从 ebp-4 开始，<br>参数： ebp+8<br>eip： ebp+4<br>ebp：原来的栈底（调用前的ebp）</p>
 </blockquote>
-<h1 id="Chapter5-IDA-Pro"><a href="#Chapter5-IDA-Pro" class="headerlink" title="Chapter5 IDA Pro"></a>Chapter5 IDA Pro</h1><p>借IDA pro这本书</p>
-<p>当加载一个文件到IDA Pro中时，IDA Pro像操作系统加载器一样将文件映射到内存中，</p>
-<h2 id="IDA-Pro接口"><a href="#IDA-Pro接口" class="headerlink" title="IDA Pro接口"></a>IDA Pro接口</h2><p>反汇编窗口有图形模式和文本模式，可以按<strong>空格键</strong>进行切换。</p>
-<p>图形模式中，箭头的颜色和方向帮助我们在分析时显示程序的流程：</p>
+<h1 id="Chapter5-IDA-Pro"><a href="#Chapter5-IDA-Pro" class="headerlink" title="Chapter5 IDA Pro"></a>Chapter5 IDA Pro</h1><p>当加载一个文件到IDA Pro中时，IDA Pro像操作系统加载器一样将文件映射到内存中，</p>
+<h2 id="IDA-Pro接口"><a href="#IDA-Pro接口" class="headerlink" title="IDA Pro接口"></a>IDA Pro接口</h2><p>反汇编窗口有图形模式和文本模式，可以按<strong>空格键</strong>进行切换。<br>图形模式中，箭头的颜色和方向帮助我们在分析时显示程序的流程：</p>
 <ul>
 <li>红色表示一个条件跳转没有被采用</li>
 <li>绿色表示这个条件跳转被采用</li>
 <li>蓝色表示一个无条件跳转被采用</li>
 </ul>
 <p>箭头的方向显示了程序的流程，向上表示一个循环条件。</p>
-<p>文本模式显示了内存地址和节名，在这个节中操作码会驻留在内存中<br>文本模式下实现标记了无条件跳转，虚线标记了条件跳转，朝上的箭头表示一个循环。</p>
+<p>文本模式显示了内存地址和节名，在这个节中操作码会驻留在内存中.<br>文本模式下实现标记了无条件跳转，虚线标记了条件跳转，朝上的箭头表示一个循环。</p>
 <p><strong>对分析有用的窗口</strong><br>这些窗口还提供了交叉引用的特性，这些特性在定位有意义代码时十分有用。</p>
 <ul>
-<li><p>函数窗口</p>
-<ul>
+<li>函数窗口<ul>
 <li>F-far function</li>
 <li>L-library function</li>
 <li>S-static function</li>
@@ -558,19 +535,14 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 <li>B-BP based frame</li>
 </ul>
 </li>
-<li><p>名字窗口</p>
-</li>
-<li><p>字符串窗口</p>
-</li>
-<li><p>导入表窗口</p>
-</li>
-<li><p>导出表窗口</p>
-</li>
-<li><p>结构窗口</p>
-</li>
+<li>名字窗口</li>
+<li>字符串窗口</li>
+<li>导入表窗口</li>
+<li>导出表窗口</li>
+<li>结构窗口</li>
 </ul>
 <p>windows-&gt;Reset Desktop 返回默认视图</p>
-<p><strong>导航栏</strong><br>我们应该在深蓝色区域执行恶意代码分析。</p>
+<p><strong>导航栏</strong><br>&emsp;&emsp;我们应该在深蓝色区域执行恶意代码分析。</p>
 <ul>
 <li>浅蓝色是被FLIRT识别的库代码</li>
 <li>红色是编译器生成的代码</li>
@@ -578,21 +550,17 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 <li>灰色为已定义的数据</li>
 <li>棕色为未定义的数据</li>
 </ul>
-<p>在反汇编窗口按G键可跳转至任意虚拟内存地址</p>
+<p>在反汇编窗口按G键可跳转至任意虚拟内存地址。</p>
 <h1 id="Chapter6-Recognizing-C-Code-Constructs-in-Assembly"><a href="#Chapter6-Recognizing-C-Code-Constructs-in-Assembly" class="headerlink" title="Chapter6 Recognizing C Code Constructs in Assembly"></a>Chapter6 Recognizing C Code Constructs in Assembly</h1><p><a href="https://www.aldeid.com/wiki/X86-assembly/Instructions" target="_blank" rel="noopener">x86汇编指令</a></p>
-<p>由于过程太过冗余，指令繁多，所以只有当我们需要时才会去关注单条指令，需要以组为单位来分析指令</p>
-<p>编译器的版本和设置能影响一个特定结构在反汇编代码中的表现。</p>
-<h2 id="全局与局部变量"><a href="#全局与局部变量" class="headerlink" title="全局与局部变量"></a>全局与局部变量</h2><p>全局变量可以被一个程序中的任意函数访问和使用。局部变量只能在它被定义的函数中访问。</p>
-<p>在反汇编代码中，全局变量通过内存地址引用，而局部变量通过栈地址引用。</p>
+<p>&emsp;&emsp;由于过程太过冗余，指令繁多，所以只有当我们需要时才会去关注单条指令，需要以组为单位来分析指令。此外，编译器的版本和设置能影响一个特定结构在反汇编代码中的表现。</p>
+<h2 id="全局与局部变量"><a href="#全局与局部变量" class="headerlink" title="全局与局部变量"></a>全局与局部变量</h2><p>&emsp;&emsp;全局变量可以被一个程序中的任意函数访问和使用。局部变量只能在它被定义的函数中访问。<br>&emsp;&emsp;在反汇编代码中，全局变量通过内存地址引用，而局部变量通过栈地址引用。</p>
 <h2 id="反汇编算术操作"><a href="#反汇编算术操作" class="headerlink" title="反汇编算术操作"></a>反汇编算术操作</h2><blockquote>
 <p>栈的分配与清空<br>push ebp<br>mov ebp，esp<br>sub esp，num<br>……（参数ebp+8，局部变量从ebp-4开始）<br>xor eax，eax<br>mov esp，ebp<br>pop ebp<br>retn</p>
 </blockquote>
 <p>除法被除数存储在 <strong>EDX:EAX</strong> 中，商保存在 EAX 中，余数保存在 EDX 中</p>
-<h2 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h2><p>对于一个if语句，必定有一个条件跳转，但不是所有条件跳转都对应if语句。</p>
-<p>如if语句对应一个条件跳转 jnz ，跳转的决定是基于一个比较 cmp 语句来做的。</p>
-<p><strong>识别嵌套if语句</strong></p>
-<h2 id="循环LOOPS"><a href="#循环LOOPS" class="headerlink" title="循环LOOPS"></a>循环LOOPS</h2><p><strong>for循环</strong><br>for循环总是有4个组件：初始化、比较、执行指令，以及递增或递减<br>存在 无条件跳转jmp往回跳<br><strong>while循环</strong><br>while循环频繁地被恶意代码作者使用。</p>
-<h2 id="函数调用约定"><a href="#函数调用约定" class="headerlink" title="函数调用约定"></a>函数调用约定</h2><p>调用约定决定了函数调用发生的方式，包括参数被放在栈上或寄存器上的次序，以及是由调用者还是被调用者负责函数执行完成时清理栈。</p>
+<h2 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h2><p>&emsp;&emsp;对于一个if语句，必定有一个条件跳转，但不是所有条件跳转都对应if语句。如if语句对应一个条件跳转 jnz ，跳转的决定是基于一个比较 cmp 语句来做的。<br><strong>识别嵌套if语句</strong></p>
+<h2 id="循环LOOPS"><a href="#循环LOOPS" class="headerlink" title="循环LOOPS"></a>循环LOOPS</h2><p><strong>for循环</strong><br>&emsp;&emsp;for循环总是有4个组件：初始化、比较、执行指令，以及递增或递减。存在无条件跳转jmp，往回跳。<br><strong>while循环</strong><br>&emsp;&emsp;while循环频繁地被恶意代码作者使用。</p>
+<h2 id="函数调用约定"><a href="#函数调用约定" class="headerlink" title="函数调用约定"></a>函数调用约定</h2><p>&emsp;&emsp;调用约定决定了函数调用发生的方式，包括参数被放在栈上或寄存器上的次序，以及是由调用者还是被调用者负责函数执行完成时清理栈。</p>
 <blockquote>
 <p>同样的约定在编译器之间也有实现上的差异。</p>
 </blockquote>
@@ -604,23 +572,22 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 <li>stdcall，被调函数清理栈，其他同cdecl<br> stdcall是Windows API的标准调用约定。任何调用这些API的代码都不需要清理栈，因为清理栈的责任是由实现API函数代码的DLL程序所承担的。    </li>
 <li>fastcall，fastcall通常是前两个参数被传进寄存器，剩下的从参数从右到左压入栈，所以参数少时，fastcall效率更高。</li>
 </ol>
-<h2 id="分析Switch语句"><a href="#分析Switch语句" class="headerlink" title="分析Switch语句"></a>分析Switch语句</h2><p>switch语句被程序员（和恶意代码作者）用来做一个居于字符或整数的决策。如后门通常使用单一的字节值从一系列动作中选一个。<br>switch语句通常以两种方式被编译：</p>
+<h2 id="分析Switch语句"><a href="#分析Switch语句" class="headerlink" title="分析Switch语句"></a>分析Switch语句</h2><p>&emsp;&emsp;switch语句被程序员（和恶意代码作者）用来做一个居于字符或整数的决策。如后门通常使用单一的字节值从一系列动作中选一个。<br>switch语句通常以两种方式被编译：</p>
 <ol>
 <li>if样式</li>
 <li>跳转表（出现在庞大连续的switch语句中）</li>
 </ol>
-<h2 id="反汇编数组"><a href="#反汇编数组" class="headerlink" title="反汇编数组"></a>反汇编数组</h2><p>汇编代码中，数组是通过使用一个基地址作为起始点来进行访问的。</p>
-<h2 id="结构体Struct"><a href="#结构体Struct" class="headerlink" title="结构体Struct"></a>结构体Struct</h2><p>结构体与数组类似，但是它们包括不同类型的元素。通常被恶意代码作者用来组织信息。有时使用结构体比独立维护很多不同类型的变量更简单。<br>结构体通过一个作为起始指针的基地址来访问。</p>
-<h2 id="分析链表遍历-Linked-List-Traversal"><a href="#分析链表遍历-Linked-List-Traversal" class="headerlink" title="分析链表遍历 Linked List Traversal"></a>分析链表遍历 Linked List Traversal</h2><h1 id="Chapter7-Analyzing-Malicious-Windows-Programs"><a href="#Chapter7-Analyzing-Malicious-Windows-Programs" class="headerlink" title="Chapter7 Analyzing Malicious Windows Programs"></a>Chapter7 Analyzing Malicious Windows Programs</h1><p>多数恶意代码以Windows平台为目标，并且与操作系统紧密交互。<br>对基本的Windows编程概念的深刻理解会有助于：</p>
+<h2 id="反汇编数组"><a href="#反汇编数组" class="headerlink" title="反汇编数组"></a>反汇编数组</h2><p>&emsp;&emsp;汇编代码中，数组是通过使用一个基地址作为起始点来进行访问的。</p>
+<h2 id="结构体Struct"><a href="#结构体Struct" class="headerlink" title="结构体Struct"></a>结构体Struct</h2><p>&emsp;&emsp;结构体与数组类似，但是它们包括不同类型的元素。通常被恶意代码作者用来组织信息。有时使用结构体比独立维护很多不同类型的变量更简单。<br>&emsp;&emsp;结构体通过一个作为起始指针的基地址来访问。</p>
+<h2 id="分析链表遍历-Linked-List-Traversal"><a href="#分析链表遍历-Linked-List-Traversal" class="headerlink" title="分析链表遍历 Linked List Traversal"></a>分析链表遍历 Linked List Traversal</h2><h1 id="Chapter7-Analyzing-Malicious-Windows-Programs"><a href="#Chapter7-Analyzing-Malicious-Windows-Programs" class="headerlink" title="Chapter7 Analyzing Malicious Windows Programs"></a>Chapter7 Analyzing Malicious Windows Programs</h1><p>&emsp;&emsp;多数恶意代码以Windows平台为目标，并且与操作系统紧密交互。对基本的Windows编程概念的深刻理解会有助于：</p>
 <ol>
 <li>识别出恶意代码在主机上的感染迹象</li>
 <li>跟踪恶意代码的执行</li>
 <li>分析出恶意代码的目的</li>
 </ol>
-<p>恶意代码通常结构很差，并且趋向于执行预期之外的动作。</p>
-<h2 id="Windows-API"><a href="#Windows-API" class="headerlink" title="Windows API"></a>Windows API</h2><p>Windows API 是一个广泛的功能集合，管理着恶意代码与微软程序库之间的交互方式。<br>Windows API 使用特定术语，名字，以及约定。</p>
-<p><strong>类型和匈牙利表达法</strong><br>多数API使用它自己的名字，来表示C语言类型。如DWORD和WORD分别表示32位和16位无符号整数。标准C类型int、short，以及unsigned int通常并不使用。</p>
-<p>Windows总体使用匈牙利表达法，使用前缀命名模式。如参数为dwSize，dw即值32位无符号整数。该表达法会使识别变量类型和解析代码更容易，但也能变得笨重（unwieldy）</p>
+<p>&emsp;&emsp;恶意代码通常结构很差，并且趋向于执行预期之外的动作。</p>
+<h2 id="Windows-API"><a href="#Windows-API" class="headerlink" title="Windows API"></a>Windows API</h2><p>&emsp;&emsp;Windows API 是一个广泛的功能集合，管理着恶意代码与微软程序库之间的交互方式。Windows API 使用特定术语，名字，以及约定。</p>
+<p><strong>类型和匈牙利表达法</strong><br>&emsp;&emsp;多数API使用它自己的名字，来表示C语言类型。如DWORD和WORD分别表示32位和16位无符号整数。标准C类型int、short，以及unsigned int通常并不使用。<br>&emsp;&emsp;Windows总体使用匈牙利表达法，使用前缀命名模式。如参数为dwSize，dw即值32位无符号整数。该表达法会使识别变量类型和解析代码更容易，但也能变得笨重（unwieldy）</p>
 <p>常见类型前缀：</p>
 <ul>
 <li>WORD（w）</li>
@@ -635,7 +602,7 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 <li>句柄在引用一个对象时很像指针，但与指针不同的是，句柄不能被用来进行数学操作，并且他们不总是表示对象地址。</li>
 <li>对句柄唯一能做的是保存它，并在后续函数调用中使用它来引用同一个对象。</li>
 </ul>
-<p><strong>文件系统函数</strong><br>恶意代码与系统交互的一个最常用的方式就是创建或修改文件，而且独特文件名或修改为既有文件名是明显的基于主机的感染迹象host-based indicators。<br>文件活动可以提示恶意代码在做什么。</p>
+<p><strong>文件系统函数</strong><br>&emsp;&emsp;恶意代码与系统交互的一个最常用的方式就是创建或修改文件，而且独特文件名或修改为既有文件名是明显的基于主机的感染迹象host-based indicators。<br>&emsp;&emsp;文件活动可以提示恶意代码在做什么。</p>
 <p>微软提供多个函数来访问文件系统</p>
 <ol>
 <li>CreateFile<ul>
@@ -655,21 +622,20 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 </ul>
 </li>
 </ol>
-<p><strong>特殊文件</strong><br>Windows中有一些特殊的文件类型，无法通过盘符与文件夹进行访问。<br>恶意代码经常使用特殊文件。</p>
+<p><strong>特殊文件</strong><br>&emsp;&emsp;Windows中有一些特殊的文件类型，无法通过盘符与文件夹进行访问。恶意代码经常使用特殊文件。</p>
 <ol>
 <li>共享文件Shared Files<br>共享文件是以\\serverName\share或\\?\\serverNamelshare开头命名的特殊文件。他们用来访问保存在共享目录中的目录或文件。\\?\\前缀告诉操作系统禁用所有的字符串解析，并允许访问长文件名。</li>
 <li>通过名字空间访问的文件</li>
-<li>备用数据流ADS<br>Alternate Data Streams特性允许附加数据被添加到一个已存在的NTFS文件中，相当于添加一个文件到另一个文件中。额外数据在列一个目录时不会被显示出来，并且当显示文件内容时也不显示；<em>而只有访问流时，他才是可见的it’s visible only when you access the strean</em></li>
+<li>备用数据流ADS<br>Alternate Data Streams特性允许附加数据被添加到一个已存在的NTFS文件中，相当于添加一个文件到另一个文件中。额外数据在列一个目录时不会被显示出来，并且当显示文件内容时也不显示；<em>而只有访问流时，他才是可见的it’s visible only when you access the strean</em>恶意代码作者喜欢ADS，因为它能用来影藏数据。</li>
 </ol>
-<p>恶意代码作者喜欢ADS，因为它能用来影藏数据。</p>
-<h2 id="Windows注册表-Registry"><a href="#Windows注册表-Registry" class="headerlink" title="Windows注册表 Registry"></a>Windows注册表 Registry</h2><p>Windows注册表被用来保存操作系统与程序的配置信息，比如设置和选项。</p>
+<h2 id="Windows注册表-Registry"><a href="#Windows注册表-Registry" class="headerlink" title="Windows注册表 Registry"></a>Windows注册表 Registry</h2><p>&emsp;&emsp;Windows注册表被用来保存操作系统与程序的配置信息，比如设置和选项。</p>
 <ul>
 <li>和文件系统一样，它是基于主机的感染迹象的很好来源，并且能揭示出恶意代码功能的有用信息。</li>
 <li>早期的版本使用.ini文件来配置信息。</li>
 <li>几乎所有的Windows配置信息都保存在注册表中，包括networking, driver, 启动项startup, user account, and other information</li>
 </ul>
-<p>恶意代码经常使用注册表来持久驻留或者存储配置数据。恶意代码添加到注册表中，这使它在计算机引导时能够自启动。</p>
-<p>Important Registry Terms</p>
+<p>&emsp;&emsp;恶意代码经常使用注册表来持久驻留或者存储配置数据。恶意代码添加到注册表中，这使它在计算机引导时能够自启动。</p>
+<p><strong>Important Registry Terms</strong></p>
 <ul>
 <li><strong>Root key根键</strong> The registry is divided into five top-level sections called root keys.5个顶层节<br>  – Sometimes, the terms HKEY and hive are also used.<br>  – Each of the root keys has a particular purpose.</li>
 <li><strong>Subkey</strong> A subkey is like a subfolder within a folder.</li>
@@ -677,7 +643,7 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 <li><strong>Value entry</strong> A value entry is an ordered pair with a name and value.</li>
 <li><strong>Value or data</strong> The value or data is the data stored in a registry entry（注册表项）.</li>
 </ul>
-<p>Five Root Keys</p>
+<p><strong>Five Root Keys</strong></p>
 <ul>
 <li><strong>HKEY_LOCAL_MACHINE (HKLM)</strong><br>  – Stores settings that are global to the local machine 本地机器的全局设置</li>
 <li>HKEY_CURRENT_USER (HKCU)<br>  – Stores settings specific to the current user 当前用户的特定设置</li>
@@ -685,30 +651,29 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 <li>HKEY_CURRENT_CONFIG<br>  – Stores settings about the current hardware configuration, specifically differences between the current and the standard configuration 当前硬件的配置设置</li>
 <li><strong>HKEY_USERS</strong><br>  – Defines settings for the default user, new users, and current users所有用户的配置</li>
 </ul>
-<p>两个最常用的的根键时HKLM和HKCU<br>一个常用的子键:<strong>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run</strong>,包含了当用户登录时被自动启动的可执行程序，向run子键中写入项，经常被恶意代码来自启动</p>
-<p><a href="https://docs.microsoft.com/en-us/sysinternals/downloads/autoruns" target="_blank" rel="noopener">Autoruns</a>列举了在操作系统启动时会自动启动运行的代码。</p>
-<p><strong>常用注册表函数</strong><br>注册表函数属于API，常用的有：</p>
+<p>&emsp;&emsp;两个最常用的的根键时HKLM和HKCU，一个常用的子键:<strong>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run</strong>,包含了当用户登录时被自动启动的可执行程序，向run子键中写入项，经常被恶意代码来自启动<br>&emsp;&emsp;<a href="https://docs.microsoft.com/en-us/sysinternals/downloads/autoruns" target="_blank" rel="noopener">Autoruns</a>列举了在操作系统启动时会自动启动运行的代码。</p>
+<p><strong>常用注册表函数</strong><br>&emsp;&emsp;注册表函数属于API，常用的有：</p>
 <ul>
 <li>RegOpenKeyEx 打开一个注册表进行编辑和查询，但大多会先用到RegOpenKeyEx</li>
 <li>RegSetValueEx 添加一个新值到注册表，并设置它的数值</li>
 <li>RegGetValue 返回注册表中一个值的项</li>
 </ul>
-<p><strong>使用.reg文件的注册表脚本</strong><br>用.reg作为扩展的文件包含一个人类可读的注册表数据。当用户双击一个.reg文件时，他会自动地通过合并文件包含的信息到注册表中，来修改注册表–几乎像一个修改注册表的脚本一样。</p>
+<p><strong>使用.reg文件的注册表脚本</strong><br>&emsp;&emsp;用.reg作为扩展的文件包含一个人类可读的注册表数据。当用户双击一个.reg文件时，他会自动地通过合并文件包含的信息到注册表中，来修改注册表–几乎像一个修改注册表的脚本一样。</p>
 <blockquote>
 <p>Windows Registry Editor Version 5.00</p>
 <p>[HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run]<br>“MaliciousValue”=”C:\windows\evil.exe”</p>
 </blockquote>
-<h2 id="网络API"><a href="#网络API" class="headerlink" title="网络API"></a>网络API</h2><p><strong>Berkeley compatible sockets</strong><br>在Windows的网络选项中，恶意代码最普遍使用的是伯克利兼容套接字，在Windows上由Winsock实现，主要在ws2_32.dll<br>Of these, the socket, connect, bind, listen, accept, send, and recv functions are the most common.</p>
+<h2 id="网络API"><a href="#网络API" class="headerlink" title="网络API"></a>网络API</h2><p><strong>Berkeley compatible sockets</strong><br>&emsp;&emsp;在Windows的网络选项中，恶意代码最普遍使用的是伯克利兼容套接字，在Windows上由Winsock实现，主要在ws2_32.dll<br>&emsp;&emsp;Of these, the socket, connect, bind, listen, accept, send, and recv functions are the most common.</p>
 <blockquote>
 <p>Notes:<br>WSAStartup函数必须在其他网络函数之前被调用，以便为这些网络库分配资源。<br>在调试代码查找网络入口时，在WSAStartup函数中设置一个断点非常有用，因为网络入口应该跟在后面不远的地方。</p>
 </blockquote>
-<p><strong>The WinINet API</strong><br>它是比Winsock更高一级的windows API，函数保存在 Wininet.dll中。<br>The WinINet API implements protocols, such as HTTP and FTP, at the application layer.</p>
+<p><strong>The WinINet API</strong><br>&emsp;&emsp;它是比Winsock更高一级的windows API，函数保存在 Wininet.dll中。<br>The WinINet API implements protocols, such as HTTP and FTP, at the application layer.</p>
 <ul>
 <li><em>InternetOpen</em> is used to initialize a connection to the Internet.</li>
 <li><em>InternetOpenUrl</em> is used to connect to a URL (which can be an HTTP page or an FTP resource).</li>
 <li><em>InternetReadFile</em> works much like the ReadFile function, allowing the program to read the data from a file downloaded from the Internet.</li>
 </ul>
-<h2 id="跟踪恶意代码的运行"><a href="#跟踪恶意代码的运行" class="headerlink" title="跟踪恶意代码的运行"></a>跟踪恶意代码的运行</h2><p>弄清恶意代码如何调用其他代码运行很重要。最常见的方式就是通过使用DLL程序。<br><strong>DLLS</strong></p>
+<h2 id="跟踪恶意代码的运行"><a href="#跟踪恶意代码的运行" class="headerlink" title="跟踪恶意代码的运行"></a>跟踪恶意代码的运行</h2><p>&emsp;&emsp;弄清恶意代码如何调用其他代码运行很重要。最常见的方式就是通过使用DLL程序。<br><strong>DLLS</strong></p>
 <ul>
 <li>All processes share loaded DLLs<ul>
 <li>Saves space, only loaded into memory once<ul>
@@ -724,7 +689,7 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 <li>DllMain is automatically called when loaded</li>
 <li>Some API: LoadLibrary, GetProcAddress</li>
 </ul>
-<p>How Malware Authors Use DLLs？恶意代码作者发现将恶意代码保存到一个DLL文件比exe文件更加有利。有些恶意代码会附加到其他进程，但每一个进程只能包含一个.exe文件。因此恶意代码有时使用DLL程序来将它加载到另一个进程中。</p>
+<p>How Malware Authors Use DLLs？<br>&emsp;&emsp;恶意代码作者发现将恶意代码保存到一个DLL文件比exe文件更加有利。有些恶意代码会附加到其他进程，但每一个进程只能包含一个.exe文件。因此恶意代码有时使用DLL程序来将它加载到另一个进程中。</p>
 <ol>
 <li>By using Windows DLLs<ul>
 <li>The way that a malicious program uses the Windows DLLs often offers tremendous insight to the malware analyst.</li>
@@ -879,8 +844,7 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 </ul>
 </li>
 </ul>
-<p>Services and Registry，Each service has a subkey under HKLM\SYSTEM\CurrentControlSet\Services.<br>sc程序是Windows包含的一个命令行工具，可以用来使用它来查看和操作服务。<br>qc命令通过以一个更加可读的方式显示。</p>
-<p><code>C:\Users\Useri&gt;sc qc &quot;VMware NAT Service&quot;</code></p>
+<p>Services and Registry，Each service has a subkey under HKLM\SYSTEM\CurrentControlSet\Services.<br>sc程序是Windows包含的一个命令行工具，可以用来使用它来查看和操作服务。qc命令通过以一个更加可读的方式显示。<br><code>C:\Users\Useri&gt;sc qc &quot;VMware NAT Service&quot;</code></p>
 <p><strong>The Component Object Model</strong></p>
 <ul>
 <li>The Microsoft Component Object Model (COM) is an interface standard that<ul>

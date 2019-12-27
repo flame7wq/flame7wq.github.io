@@ -24,7 +24,7 @@
 <meta property="og:description" content="Practical Malware Analysis The Hands-On Guide to Dissecting Malicious Software 恶意代码分析实战期末复习笔记 by757">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;flame7wq&#x2F;MarkdownPic&#x2F;master&#x2F;Image.png">
-<meta property="og:updated_time" content="2019-12-27T01:15:11.886Z">
+<meta property="og:updated_time" content="2019-12-27T01:22:30.316Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;flame7wq&#x2F;MarkdownPic&#x2F;master&#x2F;Image.png">
   
@@ -92,7 +92,7 @@
         <p>Practical Malware Analysis The Hands-On Guide to Dissecting Malicious Software</p>
 <p>恶意代码分析实战期末复习笔记 by757</p>
 <a id="more"></a>
-<h1 id="Chapter-0-入门"><a href="#Chapter-0-入门" class="headerlink" title="Chapter 0 入门"></a>Chapter 0 入门</h1><h2 id="恶意代码分析目标"><a href="#恶意代码分析目标" class="headerlink" title="恶意代码分析目标"></a>恶意代码分析目标</h2><p>&emsp;&emsp;定位感染的主机和文件，确定可疑二进制程序做了什么，如何在网络上检测，如何消除带来的损害。<br>之后编写检测特征码来检测出网络中被感染的主机。</p>
+<h1 id="Chapter-0-入门"><a href="#Chapter-0-入门" class="headerlink" title="Chapter 0 入门"></a>Chapter 0 入门</h1><h2 id="恶意代码分析目标"><a href="#恶意代码分析目标" class="headerlink" title="恶意代码分析目标"></a>恶意代码分析目标</h2><p>&emsp;&emsp;定位感染的主机和文件，确定可疑二进制程序做了什么，如何在网络上检测，如何消除带来的损害。之后编写检测特征码来检测出网络中被感染的主机。</p>
 <ul>
 <li>基于主机的检测特征码 Host-based signatures<ul>
 <li>恶意代码创建或修改的文件</li>
@@ -145,7 +145,7 @@
 <li>使用哈希来识别恶意代码</li>
 <li>从文件的字符串列表，函数和文件头信息中发掘有用的信息</li>
 </ul>
-<h2 id="反病毒引擎扫描"><a href="#反病毒引擎扫描" class="headerlink" title="反病毒引擎扫描"></a>反病毒引擎扫描</h2><p>&emsp;&emsp;第一步最好拿多个反病毒软件扫描样本文件，看是否有反病毒引擎已经识别它。常见的反病毒软件网站有<a href="https://www.virustotal.com/gui/home/upload" target="_blank" rel="noopener">VirusTotal</a>和<a href="https://www.virscan.org/" target="_blank" rel="noopener">VirSCAN</a>，它们会根据扫描情况生成报告<br>&emsp;&emsp;反病毒软件并不完美，它们主要依靠一个已知恶意代码可识别片段的特征数据库（病毒文件特征库），以及基于行为和模式匹配的分析（启发式检测）来识别可疑文件。<br>so，恶意代码编写者可以轻易的进行修改来绕过检测。</p>
+<h2 id="反病毒引擎扫描"><a href="#反病毒引擎扫描" class="headerlink" title="反病毒引擎扫描"></a>反病毒引擎扫描</h2><p>&emsp;&emsp;第一步最好拿多个反病毒软件扫描样本文件，看是否有反病毒引擎已经识别它。常见的反病毒软件网站有<a href="https://www.virustotal.com/gui/home/upload" target="_blank" rel="noopener">VirusTotal</a>和<a href="https://www.virscan.org/" target="_blank" rel="noopener">VirSCAN</a>，它们会根据扫描情况生成报告<br>&emsp;&emsp;反病毒软件并不完美，它们主要依靠一个已知恶意代码可识别片段的特征数据库（病毒文件特征库），以及基于行为和模式匹配的分析（启发式检测）来识别可疑文件。<br>So，恶意代码编写者可以轻易的进行修改来绕过检测。</p>
 <h2 id="Hashing-A-Fingerprint-for-Malware"><a href="#Hashing-A-Fingerprint-for-Malware" class="headerlink" title="Hashing: A Fingerprint for Malware"></a>Hashing: A Fingerprint for Malware</h2><p>&emsp;&emsp;哈希是一种用来唯一标识恶意代码的常用方法，产生哈希值（类似于指纹） 如MD5 、 SHA-1 、 SHA-256 …<br>免费工具：mde5deep、WinMD5</p>
 <ul>
 <li>哈希值作为标签使用</li>
@@ -156,12 +156,12 @@
 <blockquote>
 <p>微软使用“双字节字符串”（wide character string）描述Windows系统中实现的Unicode字符串。</p>
 </blockquote>
-<p>&emsp;&emsp;ASCII和Unicode存储字符序列时都以NULL结束，前者使用1个字节，后者则为两个字节。<br>&emsp;&emsp;有时Strings检测出的并非真正的字符串，如内存地址、CPU指令序列、数据。<br>Windows函数名通常以打大写字母开头后面单词的首字母均大写。</p>
+<p>&emsp;&emsp;ASCII和Unicode存储字符序列时都以NULL结束，前者使用1个字节，后者则为两个字节。<br>&emsp;&emsp;有时Strings检测出的并非真正的字符串，如内存地址、CPU指令序列、数据。Windows函数名通常以打大写字母开头后面单词的首字母均大写。</p>
 <h2 id="Packed-and-Obfuscated-Malware"><a href="#Packed-and-Obfuscated-Malware" class="headerlink" title="Packed and Obfuscated Malware"></a>Packed and Obfuscated Malware</h2><p>&emsp;&emsp;恶意代码使用加壳或混淆技术进行压缩，使得很难被检测和分析。</p>
 <blockquote>
 <p>Packed and obfuscated code will often include at least the functions <strong>LoadLibrary</strong> and <strong>GetProcAddress</strong>, which are used to load and gain access to additional functions.<br>&emsp;&emsp;加壳的程序运行时会先运行一小段脱壳代码（可执行程序源文件的字符串列表、导入表和其他信息都被压缩了）</p>
 </blockquote>
-<p>&emsp;&emsp;PEiD 检测加壳，该工具可识别编译器和加壳器<br>&emsp;&emsp;<a href="https://upx.github.io/" target="_blank" rel="noopener">UPX</a>为常见的的加壳工具，可下载进行脱壳<br><code>upx -d PackedProgram.exe</code></p>
+<p>&emsp;&emsp;PEiD 检测加壳，该工具可识别编译器和加壳器<br>&emsp;&emsp;<a href="https://upx.github.io/" target="_blank" rel="noopener">UPX</a>为常见的的加壳工具，可下载进行脱壳 <code>upx -d PackedProgram.exe</code></p>
 <h2 id="PE文件格式"><a href="#PE文件格式" class="headerlink" title="PE文件格式"></a>PE文件格式</h2><p>&emsp;&emsp;可移植执行（Portable Executable）文件格式是Windows可执行文件、对象代码和DLL所使用的标准格式。实质上是一种数据结构。<br>&emsp;&emsp;PE文件以文件头开始，其中包括代码信息、应用程序类型、所需库函数和空间要求。  PE文件头信息价值高。</p>
 <h2 id="链接库与函数"><a href="#链接库与函数" class="headerlink" title="链接库与函数"></a>链接库与函数</h2><p>&emsp;&emsp;可执行程序大的导入表信息极具价值，导入函数是存储在另一个程序中的函数。<br>常见函数链接方式有：</p>
 <ul>
@@ -220,7 +220,7 @@
 <li>Software\Microsoft\Windows\CurrentVersion\Run 这是恶意代码非常普遍使用的注册表键值、控制Windows自启动程序</li>
 <li>加壳程序比包含导入函数 LoadLibararyA 和 GetPorcAddress</li>
 </ul>
-<h2 id="PE文件头与分节"><a href="#PE文件头与分节" class="headerlink" title="PE文件头与分节"></a>PE文件头与分节</h2><p>The most common and interesting sections in a PE file：</p>
+<h2 id="PE文件头与分节"><a href="#PE文件头与分节" class="headerlink" title="PE文件头与分节"></a>PE文件头与分节</h2><p>&emsp;&emsp;The most common and interesting sections in a PE file：</p>
 <table>
 <thead>
 <tr>
@@ -337,8 +337,8 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 <li>Green and red highlights are temporary, and are removed after the process has started or terminated</li>
 </ul>
 <p>&emsp;&emsp;Process Explorer shows five columns: Process (the process name), PID (the process identifier), CPU (CPU usage), Description, and Company Name. <em>–The view updates every second.</em> </p>
-<p>&emsp;&emsp;使用verify可以检验该镜像文件是否具有微软的签名认证，但攻击者使用进程替换技术则该功能无效。<br>比较字符串在内存中和在磁盘上差异可以识别进程替换技术。<br>进程浏览器还可以用来分析恶意文档。</p>
-<h2 id="用Regshot比较注册表快照"><a href="#用Regshot比较注册表快照" class="headerlink" title="用Regshot比较注册表快照"></a>用Regshot比较注册表快照</h2><p><a href="https://sourceforge.net/projects/regshot/" target="_blank" rel="noopener">Regshot</a>是一个开源的注册表比较工具，他可以让我们比较两个注册表的快照，并发现差异。</p>
+<p>&emsp;&emsp;使用verify可以检验该镜像文件是否具有微软的签名认证，但攻击者使用进程替换技术则该功能无效。<br>&emsp;&emsp;比较字符串在内存中和在磁盘上差异可以识别进程替换技术。<br>&emsp;&emsp;进程浏览器还可以用来分析恶意文档。</p>
+<h2 id="用Regshot比较注册表快照"><a href="#用Regshot比较注册表快照" class="headerlink" title="用Regshot比较注册表快照"></a>用Regshot比较注册表快照</h2><p>&emsp;&emsp;<a href="https://sourceforge.net/projects/regshot/" target="_blank" rel="noopener">Regshot</a>是一个开源的注册表比较工具，他可以比较两个注册表的快照，并发现差异。</p>
 <h2 id="模拟网络"><a href="#模拟网络" class="headerlink" title="模拟网络"></a>模拟网络</h2><p>&emsp;&emsp;Malware often beacons out and eventually communicates with a command-and-control server.</p>
 <p>Network indicators：</p>
 <ul>
@@ -346,8 +346,7 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 <li>IP address </li>
 <li>packet signatures</li>
 </ul>
-<p><a href="https://www.aldeid.com/wiki/Mandiant-ApateDNS" target="_blank" rel="noopener">ApateDNS</a>一款来自Mandiant公司的免费软件，用来查看恶意代码发出的DNS请求最快速的方式。<br>needs <a href="https://www.microsoft.com/en-us/download/details.aspx?id=17851" target="_blank" rel="noopener">.NetFramework 4.0/3.5</a></p>
-<p>使用Netcat进行监听<br>使用wireshark进行数据包监听<br>使用<a href="http://www.inetsim.org/packages.html" target="_blank" rel="noopener">INetSim</a>是一款基于Linux模拟常见网络服务的免费软件。</p>
+<p><a href="https://www.aldeid.com/wiki/Mandiant-ApateDNS" target="_blank" rel="noopener">ApateDNS</a>一款来自Mandiant公司的免费软件，用来查看恶意代码发出的DNS请求最快速的方式。<br>needs <a href="https://www.microsoft.com/en-us/download/details.aspx?id=17851" target="_blank" rel="noopener">.NetFramework 4.0/3.5</a><br>使用<strong>Netcat</strong>进行监听<br>使用<strong>wireshark</strong>进行数据包监听<br>使用<strong><a href="http://www.inetsim.org/packages.html" target="_blank" rel="noopener">INetSim</a></strong>是一款基于Linux模拟常见网络服务的免费软件。</p>
 <h2 id="Conclusion-1"><a href="#Conclusion-1" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>&emsp;&emsp;恶意代码的动态分析基础技术能帮助和确认基本的静态分析结果。<br>&emsp;&emsp;但也有不足，我们需要逆向分析协议，下一步就是在二进制指令级别进行反汇编与解剖的静态分析高级技术。</p>
 <h1 id="Chapter4-A-Crash-Course-in-X86-Disassembly"><a href="#Chapter4-A-Crash-Course-in-X86-Disassembly" class="headerlink" title="Chapter4 A Crash Course in X86 Disassembly"></a>Chapter4 A Crash Course in X86 Disassembly</h1><p><img src="https://raw.githubusercontent.com/flame7wq/MarkdownPic/master/Image.png" alt="img.png"></p>
 <h2 id="抽象层次"><a href="#抽象层次" class="headerlink" title="抽象层次"></a>抽象层次</h2><p>&emsp;&emsp;通常，计算机系统被描述为以下六个抽象层次，越高的抽象层次越接近顶端，一个抽象层次越低，他的跨系统移植性就越差。</p>
@@ -383,13 +382,13 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 </li>
 </ol>
 <h2 id="逆向工程"><a href="#逆向工程" class="headerlink" title="逆向工程"></a>逆向工程</h2><p>&emsp;&emsp;恶意代码存储在磁盘上时，通常是机器码层的二进制形式。我们将而已代码二进制文件作为输入经过反汇编器形成汇编语言代码。<br>&emsp;&emsp;汇编语言实际上是一类语言的统称，每种汇编语言的方言，都是用来对一类微处理器家族编程的，例如，X86、X64、SPARC、PowerPC、MIPS、ARM等。目前，x86是PC上最流行的体系结构。X86又称Intel IA-32，是大部分32位PC使用的体系结构。正因如此，大部分恶意代码时x86编译的。</p>
-<h2 id="x86体系结构"><a href="#x86体系结构" class="headerlink" title="x86体系结构"></a>x86体系结构</h2><p>大部分现代计算机体系结构在内部实现上遵循冯诺依曼结构，该结构包括3种硬件组件：</p>
+<h2 id="x86体系结构"><a href="#x86体系结构" class="headerlink" title="x86体系结构"></a>x86体系结构</h2><p>&emsp;&emsp;大部分现代计算机体系结构在内部实现上遵循冯诺依曼结构，该结构包括3种硬件组件：</p>
 <ul>
 <li>CPU，执行代码</li>
 <li>内存（RAM），存储数据和代码</li>
 <li>输入输出系统（I/O），为硬件、键盘、显示器等设备提供接口。</li>
 </ul>
-<p><strong>内存</strong><br>一个程序的内存可以分为以下四个主要的节</p>
+<p><strong>内存</strong><br>&emsp;&emsp;一个程序的内存可以分为以下四个主要的节</p>
 <ol>
 <li>Data <ul>
 <li>This term can be used to refer to a specific section of memory called the data section, which contains values that are put in place when a program is initially loaded.<br>These values are sometimes called static values because they may not change while the program is running, or they may be called global values because they are available to any part of the program</li>
@@ -409,7 +408,7 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 </ul>
 </li>
 </ol>
-<p><strong>指令</strong><br>&emsp;&emsp;指令instructions是汇编程序的构成块。x86中，指令由一个助记符以及零个或多个操作数组成。<br><code>mov ecx, 0x42 →B9 42 00 00 00</code></p>
+<p><strong>指令</strong><br>&emsp;&emsp;指令instructions是汇编程序的构成块。x86中，指令由一个助记符以及零个或多个操作数组成。<br>&emsp;&emsp;<code>mov ecx, 0x42 →B9 42 00 00 00</code></p>
 <p><strong>操作码和字节序</strong><br>&emsp;&emsp;反汇编器将操作码翻译为人类易读的指令，如0xB9对应 mov ecx.<br>&emsp;&emsp;数据的字节序（Endianness）是指在一个大数据项中，最高位（大端，big-endian）还是最低位（小端-little-endian）被排在第一位（即排在最低的地址上）</p>
 <ul>
 <li>x86使用小端字节序。</li>
@@ -497,7 +496,7 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 <blockquote>
 <p>局部变量从 ebp-4 开始，<br>参数： ebp+8<br>eip： ebp+4<br>ebp：原来的栈底（调用前的ebp）</p>
 </blockquote>
-<p>调用约定 <strong>cdecl</strong><br>The cdecl (which stands for C declaration) is a calling convention that originates from the C programming languageand is used by many C compilers for the x86 architecture.<br>函数返回结果存在eax中，浮点数值存在ST0 x87 寄存器,ST0~ST7在调用新函数之前必须为空</p>
+<p>调用约定 <strong>cdecl</strong><br>&emsp;&emsp;The cdecl (which stands for C declaration) is a calling convention that originates from the C programming languageand is used by many C compilers for the x86 architecture.<br>&emsp;&emsp;函数返回结果存在eax中，浮点数值存在ST0 x87 寄存器,ST0~ST7在调用新函数之前必须为空</p>
 <p>函数实现最常用的流程：</p>
 <ol>
 <li>使用push将参数压入栈中</li>
@@ -516,16 +515,16 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 <blockquote>
 <p>局部变量从 ebp-4 开始，<br>参数： ebp+8<br>eip： ebp+4<br>ebp：原来的栈底（调用前的ebp）</p>
 </blockquote>
-<h1 id="Chapter5-IDA-Pro"><a href="#Chapter5-IDA-Pro" class="headerlink" title="Chapter5 IDA Pro"></a>Chapter5 IDA Pro</h1><p>当加载一个文件到IDA Pro中时，IDA Pro像操作系统加载器一样将文件映射到内存中，</p>
-<h2 id="IDA-Pro接口"><a href="#IDA-Pro接口" class="headerlink" title="IDA Pro接口"></a>IDA Pro接口</h2><p>反汇编窗口有图形模式和文本模式，可以按<strong>空格键</strong>进行切换。<br>图形模式中，箭头的颜色和方向帮助我们在分析时显示程序的流程：</p>
+<h1 id="Chapter5-IDA-Pro"><a href="#Chapter5-IDA-Pro" class="headerlink" title="Chapter5 IDA Pro"></a>Chapter5 IDA Pro</h1><p>&emsp;&emsp;当加载一个文件到IDA Pro中时，IDA Pro像操作系统加载器一样将文件映射到内存中，</p>
+<h2 id="IDA-Pro接口"><a href="#IDA-Pro接口" class="headerlink" title="IDA Pro接口"></a>IDA Pro接口</h2><p>&emsp;&emsp;反汇编窗口有图形模式和文本模式，可以按<strong>空格键</strong>进行切换。<br>&emsp;&emsp;图形模式中，箭头的颜色和方向帮助我们在分析时显示程序的流程：</p>
 <ul>
 <li>红色表示一个条件跳转没有被采用</li>
 <li>绿色表示这个条件跳转被采用</li>
 <li>蓝色表示一个无条件跳转被采用</li>
 </ul>
-<p>箭头的方向显示了程序的流程，向上表示一个循环条件。</p>
-<p>文本模式显示了内存地址和节名，在这个节中操作码会驻留在内存中.<br>文本模式下实现标记了无条件跳转，虚线标记了条件跳转，朝上的箭头表示一个循环。</p>
-<p><strong>对分析有用的窗口</strong><br>这些窗口还提供了交叉引用的特性，这些特性在定位有意义代码时十分有用。</p>
+<p>&emsp;&emsp;箭头的方向显示了程序的流程，向上表示一个循环条件。</p>
+<p>&emsp;&emsp;文本模式显示了内存地址和节名，在这个节中操作码会驻留在内存中.<br>&emsp;&emsp;文本模式下实现标记了无条件跳转，虚线标记了条件跳转，朝上的箭头表示一个循环。</p>
+<p><strong>对分析有用的窗口</strong><br>&emsp;&emsp;这些窗口还提供了交叉引用的特性，这些特性在定位有意义代码时十分有用。</p>
 <ul>
 <li>函数窗口<ul>
 <li>F-far function</li>

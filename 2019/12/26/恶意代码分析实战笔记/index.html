@@ -23,10 +23,10 @@
 <meta property="og:site_name" content="QiShengjia">
 <meta property="og:description" content="Practical Malware Analysis The Hands-On Guide to Dissecting Malicious Software 恶意代码分析实战期末复习笔记 by757">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="en-resource:&#x2F;&#x2F;database&#x2F;3983:1">
-<meta property="og:updated_time" content="2019-12-26T13:40:54.520Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;flame7wq&#x2F;MarkdownPic&#x2F;master&#x2F;Image.png">
+<meta property="og:updated_time" content="2019-12-27T00:37:26.240Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="en-resource:&#x2F;&#x2F;database&#x2F;3983:1">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;flame7wq&#x2F;MarkdownPic&#x2F;master&#x2F;Image.png">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -101,7 +101,10 @@
 <li>……</li>
 </ul>
 </li>
-<li>基于网络的检测特征码 Network signatures<pre><code>通过检测网络流量</code></pre></li>
+<li>基于网络的检测特征码 Network signatures<ul>
+<li>通过检测网络流量</li>
+</ul>
+</li>
 </ul>
 <h2 id="恶意代码分析技术"><a href="#恶意代码分析技术" class="headerlink" title="恶意代码分析技术"></a>恶意代码分析技术</h2><p>基本方法：</p>
 <ul>
@@ -174,7 +177,7 @@
 <ul>
 <li>静态链接</li>
 <li>运行时链接</li>
-<li>静态链接</li>
+<li>动态链接</li>
 </ul>
 <p>工具 <a href="http://www.dependencywalker.com/" target="_blank" rel="noopener">Dependency Walker</a> 可用于探索动态链接函数</p>
 <p>常见的DLL程序</p>
@@ -268,7 +271,7 @@
 <blockquote>
 <p>当分节在内存中叫磁盘上占更多空间Virtual Size&gt;Size of Raw Data，则往往意味着加壳代码的存在，特别是.text</p>
 </blockquote>
-<h3 id="资源节"><a href="#资源节" class="headerlink" title="资源节"></a>资源节</h3><p>使用工具 <a href="http://www.angusj.com/resourcehacker/" target="_blank" rel="noopener">Resource Hacker</a>浏览.rsrc节<br>可查看大量的图标文件</p>
+<h3 id="资源节"><a href="#资源节" class="headerlink" title="资源节"></a>资源节</h3><p>使用工具 <a href="http://www.angusj.com/resourcehacker/" target="_blank" rel="noopener">Resource Hacker</a>浏览.rsrc节，也可查看大量的图标文件</p>
 <blockquote>
 <p>恶意代码经常会把一个嵌入的程序或者驱动放在资源节中，在程序运行之前，他们会将其提取出来，Resource Hacker可单独分析这些文件</p>
 </blockquote>
@@ -276,11 +279,8 @@
 <p>PE文件头可获得导入函数、导出函数、时间戳、分节、子系统（指示程序是一个命令行还是图形界面应用程序）、资源等信息</p>
 <h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>利用一套相对简单的工具，我们就可以对恶意代码进行静态分析，来获得一些它功能上的观察。</p>
 <h1 id="Chapter2-虚拟机中分析恶意代码"><a href="#Chapter2-虚拟机中分析恶意代码" class="headerlink" title="Chapter2 虚拟机中分析恶意代码"></a>Chapter2 虚拟机中分析恶意代码</h1><p>MALWARE ANALYSIS IN VIRTUAL MACHINES<br>动态分析恶意代码之前必须建立一个安全环境，以预防迅速蔓延至网络中的其他主机，规避不必要的风险。</p>
-<p>想安全地研究恶意代码，需要专用的物理主机或是虚拟机。并进行网络隔离防止传播蔓延。</p>
-<p>物理机上分析恶意代码缺点就是缺乏互联网连接和恶意代码难以移出。优势在于恶意代码会进行反虚拟机行为。</p>
-<p>但由于虚拟机的简单，便捷，大多数动态分析选择虚拟机。</p>
-<p>虚拟接采用主机模式（host-only），创建多个虚拟机进行网络连接。</p>
-<p>善用虚拟机的快照功能，他很方便。</p>
+<p>想安全地研究恶意代码，需要专用的物理主机或是虚拟机。并进行网络隔离防止传播蔓延。物理机上分析恶意代码缺点就是缺乏互联网连接和恶意代码难以移除。优势在于恶意代码会进行反虚拟机行为。但由于虚拟机的简单，便捷，大多数动态分析选择虚拟机。</p>
+<p>虚拟接采用主机模式（host-only），创建多个虚拟机进行网络连接。善用虚拟机的快照功能，他很方便。</p>
 <h1 id="Chapter3-动态分析基础技术"><a href="#Chapter3-动态分析基础技术" class="headerlink" title="Chapter3 动态分析基础技术"></a>Chapter3 动态分析基础技术</h1><p>动态分析技术是在运行恶意代码之后进行检查的过程，在静态分析基础技术进入到死胡同之后。包括在恶意代码运行时刻进行监控，以及在恶意代码运行之后检查系统情况。</p>
 <p>Advantages:</p>
 <ul>
@@ -366,7 +366,7 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 <p><a href="https://www.aldeid.com/wiki/Mandiant-ApateDNS" target="_blank" rel="noopener">ApateDNS</a>一款来自Mandiant公司的免费软件，用来查看恶意代码发出的DNS请求最快速的方式。<br>needs <a href="https://www.microsoft.com/en-us/download/details.aspx?id=17851" target="_blank" rel="noopener">.NetFramework 4.0/3.5</a></p>
 <p>使用Netcat进行监听<br>使用wireshark进行数据包监听<br>使用<a href="http://www.inetsim.org/packages.html" target="_blank" rel="noopener">INetSim</a>是一款基于Linux模拟常见网络服务的免费软件</p>
 <h2 id="Conclusion-1"><a href="#Conclusion-1" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>恶意代码的动态分析基础技术能帮助和确认基本的静态分析结果。<br>但也有不足，我们需要逆向分析协议，下一步就是在二进制指令级别进行反汇编与解剖的静态分析高级技术。</p>
-<h1 id="Chapter4-A-Crash-Course-in-X86-Disassembly"><a href="#Chapter4-A-Crash-Course-in-X86-Disassembly" class="headerlink" title="Chapter4 A Crash Course in X86 Disassembly"></a>Chapter4 A Crash Course in X86 Disassembly</h1><p><img src="en-resource://database/3983:1" alt="9aad58ee09f71f28556cb267f76d3734.png"></p>
+<h1 id="Chapter4-A-Crash-Course-in-X86-Disassembly"><a href="#Chapter4-A-Crash-Course-in-X86-Disassembly" class="headerlink" title="Chapter4 A Crash Course in X86 Disassembly"></a>Chapter4 A Crash Course in X86 Disassembly</h1><p><img src="https://raw.githubusercontent.com/flame7wq/MarkdownPic/master/Image.png" alt="img.png"></p>
 <h2 id="抽象层次"><a href="#抽象层次" class="headerlink" title="抽象层次"></a>抽象层次</h2><p>通常，计算机系统被描述为以下六个抽象层次，越高的抽象层次越接近顶端，一个抽象层次越低，他的跨系统移植性就越差。</p>
 <ol>
 <li>硬件 Hardware<ul>

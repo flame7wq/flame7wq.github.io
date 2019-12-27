@@ -24,7 +24,7 @@
 <meta property="og:description" content="Practical Malware Analysis The Hands-On Guide to Dissecting Malicious Software 恶意代码分析实战期末复习笔记 by757">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;flame7wq&#x2F;MarkdownPic&#x2F;master&#x2F;Image.png">
-<meta property="og:updated_time" content="2019-12-27T01:14:07.974Z">
+<meta property="og:updated_time" content="2019-12-27T01:15:11.886Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;flame7wq&#x2F;MarkdownPic&#x2F;master&#x2F;Image.png">
   
@@ -145,7 +145,7 @@
 <li>使用哈希来识别恶意代码</li>
 <li>从文件的字符串列表，函数和文件头信息中发掘有用的信息</li>
 </ul>
-<h2 id="反病毒引擎扫描"><a href="#反病毒引擎扫描" class="headerlink" title="反病毒引擎扫描"></a>反病毒引擎扫描</h2><p>&emsp;&emsp;第一步最好拿多个反病毒软件扫描样本文件，看是否有反病毒引擎已经识别它。<br>常见的反病毒软件网站有<a href="https://www.virustotal.com/gui/home/upload" target="_blank" rel="noopener">VirusTotal</a>和<a href="https://www.virscan.org/" target="_blank" rel="noopener">VirSCAN</a>，它们会根据扫描情况生成报告<br>&emsp;&emsp;反病毒软件并不完美，它们主要依靠一个已知恶意代码可识别片段的特征数据库（病毒文件特征库），以及基于行为和模式匹配的分析（启发式检测）来识别可疑文件。<br>so，恶意代码编写者可以轻易的进行修改来绕过检测。</p>
+<h2 id="反病毒引擎扫描"><a href="#反病毒引擎扫描" class="headerlink" title="反病毒引擎扫描"></a>反病毒引擎扫描</h2><p>&emsp;&emsp;第一步最好拿多个反病毒软件扫描样本文件，看是否有反病毒引擎已经识别它。常见的反病毒软件网站有<a href="https://www.virustotal.com/gui/home/upload" target="_blank" rel="noopener">VirusTotal</a>和<a href="https://www.virscan.org/" target="_blank" rel="noopener">VirSCAN</a>，它们会根据扫描情况生成报告<br>&emsp;&emsp;反病毒软件并不完美，它们主要依靠一个已知恶意代码可识别片段的特征数据库（病毒文件特征库），以及基于行为和模式匹配的分析（启发式检测）来识别可疑文件。<br>so，恶意代码编写者可以轻易的进行修改来绕过检测。</p>
 <h2 id="Hashing-A-Fingerprint-for-Malware"><a href="#Hashing-A-Fingerprint-for-Malware" class="headerlink" title="Hashing: A Fingerprint for Malware"></a>Hashing: A Fingerprint for Malware</h2><p>&emsp;&emsp;哈希是一种用来唯一标识恶意代码的常用方法，产生哈希值（类似于指纹） 如MD5 、 SHA-1 、 SHA-256 …<br>免费工具：mde5deep、WinMD5</p>
 <ul>
 <li>哈希值作为标签使用</li>

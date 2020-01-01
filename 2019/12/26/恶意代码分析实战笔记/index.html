@@ -26,7 +26,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;flame7wq&#x2F;MarkdownPic&#x2F;master&#x2F;Image.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;flame7wq&#x2F;MarkdownPic&#x2F;master&#x2F;Image%20%5B2%5D.png">
-<meta property="og:updated_time" content="2020-01-01T13:14:18.696Z">
+<meta property="og:updated_time" content="2020-01-01T13:16:33.030Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;flame7wq&#x2F;MarkdownPic&#x2F;master&#x2F;Image.png">
   
@@ -350,7 +350,7 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 <li>IP address </li>
 <li>packet signatures</li>
 </ul>
-<p><a href="https://www.aldeid.com/wiki/Mandiant-ApateDNS" target="_blank" rel="noopener">ApateDNS</a>一款来自Mandiant公司的免费软件，用来查看恶意代码发出的DNS请求最快速的方式。ApataDNS在本机上监听UDP的53端口，对用户指定的IP地址给出虚假的DNS响应。它用指定的IP地址去响应DNS请求。<br>needs <a href="https://www.microsoft.com/en-us/download/details.aspx?id=17851" target="_blank" rel="noopener">.NetFramework 4.0/3.5</a><br>使用<strong>Netcat</strong>进行监听，aka “TCP/IP协议栈的瑞士军刀”，可以被用在端口扫描、隧道、代理、端口转发等对内对外连接上。在监听模式下Netcat充当服务器，在连接模式下作为一个客户端。<br>使用<strong>Wireshark</strong>进行数据包监听<br>使用<strong><a href="http://www.inetsim.org/packages.html" target="_blank" rel="noopener">INetSim</a></strong>是一款基于Linux模拟常见网络服务的免费软件。</p>
+<p>&emsp;&emsp;<a href="https://www.aldeid.com/wiki/Mandiant-ApateDNS" target="_blank" rel="noopener">ApateDNS</a>一款来自Mandiant公司的免费软件，用来查看恶意代码发出的DNS请求最快速的方式。ApataDNS在本机上监听UDP的53端口，对用户指定的IP地址给出虚假的DNS响应。它用指定的IP地址去响应DNS请求。<br>&emsp;&emsp;needs <a href="https://www.microsoft.com/en-us/download/details.aspx?id=17851" target="_blank" rel="noopener">.NetFramework 4.0/3.5</a><br>&emsp;&emsp;使用<strong>Netcat</strong>进行监听，aka “TCP/IP协议栈的瑞士军刀”，可以被用在端口扫描、隧道、代理、端口转发等对内对外连接上。在监听模式下Netcat充当服务器，在连接模式下作为一个客户端。<br>&emsp;&emsp;使用<strong>Wireshark</strong>进行数据包监听<br>&emsp;&emsp;使用<strong><a href="http://www.inetsim.org/packages.html" target="_blank" rel="noopener">INetSim</a></strong>是一款基于Linux模拟常见网络服务的免费软件。</p>
 <h2 id="Conclusion-1"><a href="#Conclusion-1" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>&emsp;&emsp;恶意代码的动态分析基础技术能帮助和确认基本的静态分析结果。<br>&emsp;&emsp;但也有不足，我们需要逆向分析协议，下一步就是在二进制指令级别进行反汇编与解剖的静态分析高级技术。</p>
 <h1 id="Chapter4-A-Crash-Course-in-X86-Disassembly"><a href="#Chapter4-A-Crash-Course-in-X86-Disassembly" class="headerlink" title="Chapter4 A Crash Course in X86 Disassembly"></a>Chapter4 A Crash Course in X86 Disassembly</h1><p><img src="https://raw.githubusercontent.com/flame7wq/MarkdownPic/master/Image.png" alt="img.png"></p>
 <h2 id="抽象层次"><a href="#抽象层次" class="headerlink" title="抽象层次"></a>抽象层次</h2><p>&emsp;&emsp;通常，计算机系统被描述为以下六个抽象层次，越高的抽象层次越接近顶端，一个抽象层次越低，他的跨系统移植性就越差。</p>

@@ -26,7 +26,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;flame7wq&#x2F;MarkdownPic&#x2F;master&#x2F;Image.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;flame7wq&#x2F;MarkdownPic&#x2F;master&#x2F;Image%20%5B2%5D.png">
-<meta property="og:updated_time" content="2019-12-31T08:15:06.370Z">
+<meta property="og:updated_time" content="2020-01-01T13:14:18.696Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;flame7wq&#x2F;MarkdownPic&#x2F;master&#x2F;Image.png">
   
@@ -272,7 +272,7 @@
 <p>&emsp;&emsp;其他PE文件工具<a href="http://www.smidgeonsoft.prohosting.com/pebrowsepro-file-viewer.html" target="_blank" rel="noopener">PEBrowse Professional</a>和<a href="http://www.heaventools.com/" target="_blank" rel="noopener">PE Explorer</a><br>&emsp;&emsp;PE文件头可获得导入函数、导出函数、时间戳、分节、子系统（指示程序是一个命令行还是图形界面应用程序）、资源等信息。</p>
 <h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>&emsp;&emsp;利用一套相对简单的工具，我们就可以对恶意代码进行静态分析，来获得一些它功能上的观察。</p>
 <h1 id="Chapter2-虚拟机中分析恶意代码"><a href="#Chapter2-虚拟机中分析恶意代码" class="headerlink" title="Chapter2 虚拟机中分析恶意代码"></a>Chapter2 虚拟机中分析恶意代码</h1><p>&emsp;&emsp;MALWARE ANALYSIS IN VIRTUAL MACHINES<br>&emsp;&emsp;动态分析恶意代码之前必须建立一个安全环境，以预防迅速蔓延至网络中的其他主机，规避不必要的风险。</p>
-<p>&emsp;&emsp;想安全地研究恶意代码，需要专用的物理主机或是虚拟机。并进行网络隔离防止传播蔓延。物理机上分析恶意代码缺点就是缺乏互联网连接和恶意代码难以移除。优势在于恶意代码会进行反虚拟机行为。但由于虚拟机的简单，便捷，大多数动态分析选择虚拟机。<br>&emsp;&emsp;虚拟接采用主机模式（host-only），创建多个虚拟机进行网络连接。善用虚拟机的快照功能，他很方便。</p>
+<p>&emsp;&emsp;想安全地研究恶意代码，需要专用的物理主机或是虚拟机。并进行网络隔离防止传播蔓延。物理机上分析恶意代码缺点就是缺乏互联网连接和恶意代码难以移除。优势在于恶意代码会进行反虚拟机行为。但由于虚拟机的简单，便捷，大多数动态分析选择虚拟机。<br>&emsp;&emsp;虚拟机采用主机模式（host-only），创建多个虚拟机进行网络连接。善用虚拟机的快照功能，他很方便。当使用多个虚拟机进行恶意代码分析的时候，将一些虚拟机组成分组的功能将非常有用。</p>
 <h1 id="Chapter3-动态分析基础技术"><a href="#Chapter3-动态分析基础技术" class="headerlink" title="Chapter3 动态分析基础技术"></a>Chapter3 动态分析基础技术</h1><p>&emsp;&emsp;动态分析技术是在运行恶意代码之后进行检查的过程，在静态分析基础技术进入到死胡同之后。包括在恶意代码运行时刻进行监控，以及在恶意代码运行之后检查系统情况。</p>
 <p>Advantages:</p>
 <ul>
@@ -322,7 +322,7 @@
 <p>Launch malicious DLLs<br><code>C:\&gt;rundll32.exe DLLname, Export arguments
 C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a function name or ordinalselected from the exported function table in the DLL.</em></p>
 <p>还可修改PE头中，将IMAGE_FILE_HEADER特征域里擦除IMAGE_FILE_DLL (0x2000) 标记。<br>DLL形态的恶意代码也有可能需要被安装成一个服务。</p>
-<p><strong>net start</strong> 命令可以启动windows指定服务<br>Windows服务的注册表项位于HKLM\SYSTEM\CurrentControlSet\Services</p>
+<p><strong>net start</strong> 命令可以启动windows指定服务。<br><strong>Windows服务的注册表项位于HKLM\SYSTEM\CurrentControlSet\Services</strong></p>
 <h2 id="进程监视器"><a href="#进程监视器" class="headerlink" title="进程监视器"></a>进程监视器</h2><p><a href="https://web.archive.org/web/20110101122655/http:/technet.microsoft.com/en-us/sysinternals/bb896645" target="_blank" rel="noopener">Procmon</a></p>
 <p>&emsp;&emsp;An advanced monitoring tool for Windows that provides a way to  monitor certain registry, file system, network, process, and thread activity.<br>它结合了文件监视器FileMon和注册表监视器RegMon的功能。<br>&emsp;&emsp;它一旦运行起来就会监控所有能捕捉的系统调用，而且他是用内存来记录事件，所以可能会耗尽内存而使虚拟机崩溃。</p>
 <p>善用procmon的过滤功能：</p>
@@ -350,7 +350,7 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 <li>IP address </li>
 <li>packet signatures</li>
 </ul>
-<p><a href="https://www.aldeid.com/wiki/Mandiant-ApateDNS" target="_blank" rel="noopener">ApateDNS</a>一款来自Mandiant公司的免费软件，用来查看恶意代码发出的DNS请求最快速的方式。<br>needs <a href="https://www.microsoft.com/en-us/download/details.aspx?id=17851" target="_blank" rel="noopener">.NetFramework 4.0/3.5</a><br>使用<strong>Netcat</strong>进行监听<br>使用<strong>wireshark</strong>进行数据包监听<br>使用<strong><a href="http://www.inetsim.org/packages.html" target="_blank" rel="noopener">INetSim</a></strong>是一款基于Linux模拟常见网络服务的免费软件。</p>
+<p><a href="https://www.aldeid.com/wiki/Mandiant-ApateDNS" target="_blank" rel="noopener">ApateDNS</a>一款来自Mandiant公司的免费软件，用来查看恶意代码发出的DNS请求最快速的方式。ApataDNS在本机上监听UDP的53端口，对用户指定的IP地址给出虚假的DNS响应。它用指定的IP地址去响应DNS请求。<br>needs <a href="https://www.microsoft.com/en-us/download/details.aspx?id=17851" target="_blank" rel="noopener">.NetFramework 4.0/3.5</a><br>使用<strong>Netcat</strong>进行监听，aka “TCP/IP协议栈的瑞士军刀”，可以被用在端口扫描、隧道、代理、端口转发等对内对外连接上。在监听模式下Netcat充当服务器，在连接模式下作为一个客户端。<br>使用<strong>Wireshark</strong>进行数据包监听<br>使用<strong><a href="http://www.inetsim.org/packages.html" target="_blank" rel="noopener">INetSim</a></strong>是一款基于Linux模拟常见网络服务的免费软件。</p>
 <h2 id="Conclusion-1"><a href="#Conclusion-1" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>&emsp;&emsp;恶意代码的动态分析基础技术能帮助和确认基本的静态分析结果。<br>&emsp;&emsp;但也有不足，我们需要逆向分析协议，下一步就是在二进制指令级别进行反汇编与解剖的静态分析高级技术。</p>
 <h1 id="Chapter4-A-Crash-Course-in-X86-Disassembly"><a href="#Chapter4-A-Crash-Course-in-X86-Disassembly" class="headerlink" title="Chapter4 A Crash Course in X86 Disassembly"></a>Chapter4 A Crash Course in X86 Disassembly</h1><p><img src="https://raw.githubusercontent.com/flame7wq/MarkdownPic/master/Image.png" alt="img.png"></p>
 <h2 id="抽象层次"><a href="#抽象层次" class="headerlink" title="抽象层次"></a>抽象层次</h2><p>&emsp;&emsp;通常，计算机系统被描述为以下六个抽象层次，越高的抽象层次越接近顶端，一个抽象层次越低，他的跨系统移植性就越差。</p>
@@ -1247,7 +1247,7 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 </div>
       </div>
       <footer id="colophon" role="contentinfo">
-    <p>&copy; 2019 shengjia
+    <p>&copy; 2020 shengjia
     All rights reserved.</p>
     <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
 </footer>

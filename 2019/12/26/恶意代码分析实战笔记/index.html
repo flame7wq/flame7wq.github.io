@@ -26,7 +26,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;flame7wq&#x2F;MarkdownPic&#x2F;master&#x2F;Image.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;flame7wq&#x2F;MarkdownPic&#x2F;master&#x2F;Image%20%5B2%5D.png">
-<meta property="og:updated_time" content="2020-01-01T13:16:33.030Z">
+<meta property="og:updated_time" content="2020-01-02T07:01:49.085Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;flame7wq&#x2F;MarkdownPic&#x2F;master&#x2F;Image.png">
   
@@ -962,7 +962,7 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 </ul>
 <p><strong>Pausing Execution with Breakpoints</strong></p>
 <ol>
-<li>Software Execution Breakpoints<ul>
+<li>Software Execution Breakpoints 软件执行断点<ul>
 <li>The debugger implements a software breakpoint by overwriting the first byte of an instruction with 0xCC, the instruction for INT 3, the breakpoint interrupt designed for use with debuggers.<ul>
 <li>The actual memory used by the instruction is changed</li>
 <li>The debugger’s memory dump will show the original value</li>
@@ -973,7 +973,7 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 <li>The code change is small and requires only a small amount of memory for recordkeeping in the debugger.</li>
 </ul>
 </li>
-<li>Hardware Execution Breakpoints<ul>
+<li>Hardware Execution Breakpoints 硬件执行断点<ul>
 <li>The x86 architecture supports hardware execution breakpoints through dedicated hardware registers.</li>
 <li>Every time the processor executes an instruction, there is hardware to detect if the instruction pointer is equal to the breakpoint address.</li>
 <li>Unlike software breakpoints, with hardware breakpoints, it doesn’t matter which bytes are stored at that location.<ul>
@@ -997,7 +997,7 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 </li>
 </ul>
 </li>
-<li>Conditional Breakpoints<ul>
+<li>Conditional Breakpoints 条件断点<ul>
 <li>Conditional breakpoints are software breakpoints that will break only if a certain condition is true.</li>
 <li>The debugger evaluates the condition, and if the condition is not met, it automatically continues execution without alerting the user.</li>
 <li>Different debuggers support different conditions.</li>
@@ -1184,6 +1184,8 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
 <nav class="nav-single">
     <h3 class="assistive-text">文章导航</h3>
     
+        <span class="nav-previous"><a href="/2020/02/03/RECON-NG%20V5%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" rel="prev"><span class="meta-nav">←</span> RECON-NG V5使用方法</a></span>
+    
     
         <span class="nav-next"><a href="/2019/11/24/Win%2010%20%E6%A1%8C%E9%9D%A2%E7%AE%80%E5%8D%95%E7%BE%8E%E5%8C%96/" rel="next">Win 10 桌面简单美化 <span class="meta-nav">→</span></a></span>
     
@@ -1216,6 +1218,10 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
       <ul>
         
           <li>
+            <a href="/2020/02/03/RECON-NG%20V5%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">RECON-NG V5使用方法</a>
+          </li>
+        
+          <li>
             <a href="/2019/12/26/%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/">恶意代码分析实战笔记</a>
           </li>
         
@@ -1229,10 +1235,6 @@ C:\&gt;rundll32.exe xyzzy.dll, #5</code><br><em>The Export value must be a funct
         
           <li>
             <a href="/2019/10/30/Sublime%20text%203%20%E7%9A%84%E4%BD%BF%E7%94%A8/">Sublime text 3 的使用</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/29/First-blog/">First blog</a>
           </li>
         
       </ul>
